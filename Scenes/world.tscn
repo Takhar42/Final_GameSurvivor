@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6m7yq0u0s7xa"]
+
+[ext_resource type="Script" path="res://Scripts/world.gd" id="1_jeina"]
+[ext_resource type="PackedScene" uid="uid://2hu24g51nt80" path="res://Scenes/node_2d.tscn" id="2_bgrcg"]
+
+[node name="World" type="Node"]
+script = ExtResource("1_jeina")
+
+[node name="Node2D" parent="." instance=ExtResource("2_bgrcg")]
