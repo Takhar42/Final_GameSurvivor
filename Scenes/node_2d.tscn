@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://2hu24g51nt80"]
+[gd_scene load_steps=49 format=3 uid="uid://2hu24g51nt80"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_wt5hg"]
 [ext_resource type="Texture2D" uid="uid://bamxf65dj4kty" path="res://assets/player/Idle.png" id="2_b434k"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://dc2pupfw1lnc8" path="res://assets/background/Layer_0004_Lights.png" id="13_8dscu"]
 [ext_resource type="Texture2D" uid="uid://nh448uxqpypb" path="res://assets/background/Layer_0003_6.png" id="14_4ejrw"]
 [ext_resource type="Texture2D" uid="uid://dhpkr85t6uvoc" path="res://assets/background/Layer_0002_7.png" id="15_y2uib"]
+[ext_resource type="Texture2D" uid="uid://bmxji3s8cdrfc" path="res://assets/obstacles/Texture/TX Village Props.png" id="16_3sy7q"]
+[ext_resource type="FontFile" uid="uid://cpfg2i8m7hiuw" path="res://assets/font/m5x7.ttf" id="17_gddyx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rn01j"]
 size = Vector2(2304, 72)
@@ -365,3 +367,39 @@ color = Color(0, 1, 0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 position = Vector2(447, -31)
 shape = SubResource("RectangleShape2D_w48qf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("16_3sy7q")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(5.5, -17.5, -12.5, -17.5, -12.5, -16.3, -24, -4, -24, 0, -24, 8, -22.5, 11.4, -20, 12, -16, 12, 16, 12, 24, 8, 24, 4, 24, 0, 16.5, -10.4, 12, -12, 9.3, -12.5, 5.5, -16.3)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("17_gddyx")
+theme_override_font_sizes/font_size = 50
+text = "Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Label" parent="CanvasLayer"]
+offset_left = 224.0
+offset_top = 280.0
+offset_right = 918.0
+offset_bottom = 360.0
+theme_override_fonts/font = ExtResource("17_gddyx")
+theme_override_font_sizes/font_size = 70
+text = "ENTER SPACE TO PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
