@@ -4,6 +4,10 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY: float = -400.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var jump_audio: AudioStreamPlayer2D
+
+func _ready():
+	jump_audio = $JumpAudio # Initialize jump_audio properly here
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -11,7 +15,8 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+		jump_audio.play()
+		
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * MOVE_SPEED
@@ -19,3 +24,4 @@ func _physics_process(delta):
 		velocity.x = 0
 	
 	move_and_slide()
+	

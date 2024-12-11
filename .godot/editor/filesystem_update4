@@ -1,0 +1,5 @@
+res://Scenes/node_2d.tscn
+res://Scenes/world.tscn
+res://2DkinematicBody.gd
+res://Scripts/player.gd
+res://Scripts/world.gd

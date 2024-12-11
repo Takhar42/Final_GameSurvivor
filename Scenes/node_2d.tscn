@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://2hu24g51nt80"]
+[gd_scene load_steps=50 format=3 uid="uid://2hu24g51nt80"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_wt5hg"]
 [ext_resource type="Texture2D" uid="uid://bamxf65dj4kty" path="res://assets/player/Idle.png" id="2_b434k"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dhpkr85t6uvoc" path="res://assets/background/Layer_0002_7.png" id="15_y2uib"]
 [ext_resource type="Texture2D" uid="uid://bmxji3s8cdrfc" path="res://assets/obstacles/Texture/TX Village Props.png" id="16_3sy7q"]
 [ext_resource type="FontFile" uid="uid://cpfg2i8m7hiuw" path="res://assets/font/m5x7.ttf" id="17_gddyx"]
+[ext_resource type="AudioStream" uid="uid://cireubg54oav6" path="res://assets/audio/cartoon-jump-6462-_1_.ogg" id="18_xfe6d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rn01j"]
 size = Vector2(2304, 72)
@@ -350,6 +351,10 @@ frame_progress = 0.191521
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(66.6667, 322.667)
 shape = SubResource("RectangleShape2D_31suy")
+
+[node name="JumpAudio" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+scale = Vector2(0.666667, 0.666667)
+stream = ExtResource("18_xfe6d")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
