@@ -1,33 +1,28 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 # Variables
-var velocity = Vector2(0, 0)
-var speed = 200
-var gravity = 500
-var jump_force = -300
-var is_jumping = false
+@export var speed: float = 200.0
+@export var gravity: float = 500.0
+@export var jump_force: float = -300.0
 
 # Called every frame
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	# Apply gravity
-	velocity.y += gravity * delta
-	
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	else:
+		velocity.y = 0
+
 	# Horizontal movement
+	velocity.x = 0
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = speed
 	elif Input.is_action_pressed("ui_left"):
 		velocity.x = -speed
-	else:
-		velocity.x = 0
 
 	# Jumping
-	if Input.is_action_just_pressed("ui_up") and not is_jumping:
+	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = jump_force
-		is_jumping = true
 
-	# Check for ground
-	if is_on_floor():
-		is_jumping = false
-	
 	# Move and slide
-	velocity = move_and_slide(velocity, Vector2.UP)
+	move_and_slide()
