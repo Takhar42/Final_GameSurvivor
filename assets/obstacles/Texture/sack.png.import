@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1o4p75lleilh"
-path="res://.godot/imported/TX FX Torch Flame.png-d8fc4d6a42040b73f7fdfd31bb8dab2c.ctex"
+uid="uid://djve520pymkoj"
+path="res://.godot/imported/sack.png-c28b78b7c096d133edfed6348ff6d0bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/obstacles/Texture/TX FX Torch Flame.png"
-dest_files=["res://.godot/imported/TX FX Torch Flame.png-d8fc4d6a42040b73f7fdfd31bb8dab2c.ctex"]
+source_file="res://assets/obstacles/Texture/sack.png"
+dest_files=["res://.godot/imported/sack.png-c28b78b7c096d133edfed6348ff6d0bb.ctex"]
 
 [params]
 

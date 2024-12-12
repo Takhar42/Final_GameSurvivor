@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3di71sd83a7g"
-path="res://.godot/imported/TX Chest Animation.png-9af08fc4602681d7a1e78d4724e091f4.ctex"
+uid="uid://dbfaheqr8rty7"
+path="res://.godot/imported/anvil.png-358c30a25387dfe943ddbb13aaee149b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/obstacles/Texture/TX Chest Animation.png"
-dest_files=["res://.godot/imported/TX Chest Animation.png-9af08fc4602681d7a1e78d4724e091f4.ctex"]
+source_file="res://assets/obstacles/Texture/anvil.png"
+dest_files=["res://.godot/imported/anvil.png-358c30a25387dfe943ddbb13aaee149b.ctex"]
 
 [params]
 
