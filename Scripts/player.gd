@@ -28,7 +28,7 @@ func _physics_process(delta):
 			$CollisionShape2D.disabled = true
 			
 		elif Input.is_action_pressed("sword"):
-			$AnimatedSprite2D.play("sword")
+			$AnimatedSprite2D.play("attack")
 			
 		else:
 			$AnimatedSprite2D.play("run")
@@ -40,6 +40,7 @@ func _physics_process(delta):
 
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
+		$AnimatedSprite2D.flip_h = direction < 0
 		velocity.x = direction * MOVE_SPEED
 	else:
 		velocity.x = 0
