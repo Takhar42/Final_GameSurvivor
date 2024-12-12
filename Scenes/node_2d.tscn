@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://2hu24g51nt80"]
+[gd_scene load_steps=75 format=3 uid="uid://2hu24g51nt80"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_wt5hg"]
 [ext_resource type="Texture2D" uid="uid://bamxf65dj4kty" path="res://assets/player/Idle.png" id="2_b434k"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://djve520pymkoj" path="res://assets/obstacles/Texture/sack.png" id="18_r540c"]
 [ext_resource type="Texture2D" uid="uid://dbfaheqr8rty7" path="res://assets/obstacles/Texture/anvil.png" id="19_306ky"]
 [ext_resource type="AudioStream" uid="uid://cireubg54oav6" path="res://assets/audio/cartoon-jump-6462-_1_.ogg" id="23_4vdhu"]
+[ext_resource type="PackedScene" uid="uid://3pgt3p6jh6rh" path="res://Scenes/boss.tscn" id="24_644rn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rn01j"]
 size = Vector2(2304, 72)
@@ -488,14 +489,17 @@ autoplay = "run"
 frame_progress = 0.309532
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
 position = Vector2(66.6667, 322.667)
 shape = SubResource("RectangleShape2D_31suy")
 
 [node name="SlideCollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
 position = Vector2(64, 336)
 shape = SubResource("RectangleShape2D_f5xtf")
 
 [node name="SwordCollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
 position = Vector2(90.6667, 305.333)
 shape = SubResource("RectangleShape2D_62nk5")
 
@@ -583,3 +587,6 @@ theme_override_font_sizes/font_size = 70
 text = "ENTER SPACE TO PLAY"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Boss" parent="." instance=ExtResource("24_644rn")]
+position = Vector2(1096, 536)
