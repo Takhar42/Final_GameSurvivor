@@ -1,6 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1733957220
-2DkinematicBody.gd::GDScript::-1::1733957196::0::1::::<>RefCounted<>::
+::res://::1733970490
+2DkinematicBody.gd::GDScript::-1::1733964819::0::1::::<>KinematicBody2D<>::
 icon.svg::CompressedTexture2D::1968003005465058192::1733952175::1733952245::1::::<><>::
 node_2d.tscn::PackedScene::1910813512640376463::1733952175::0::1::::<><>::res://Scenes/player.gd<>res://Scenes/camera_control.gd
 ::res://assets/::1733955981
@@ -103,12 +103,12 @@ Idle.png::CompressedTexture2D::2412600311262443806::1733952175::1733952245::1:::
 Jump.png::CompressedTexture2D::4490417942810805201::1733952175::1733952245::1::::<><>::
 Run.png::CompressedTexture2D::7193648442932074896::1733952175::1733952245::1::::<><>::
 Slide.png::CompressedTexture2D::7440978100066892607::1733952175::1733952245::1::::<><>::
-::res://Scenes/::1733957196
-node_2d.tscn::PackedScene::1910813512640376463::1733957196::0::1::::<><>::res://Scripts/player.gd<>uid://bamxf65dj4kty::::res://assets/player/Idle.png<>uid://b48gr60jswg5n::::res://assets/player/Jump.png<>uid://daqwlryfk5sma::::res://assets/player/Run.png<>uid://baspb2fo2yfl3::::res://assets/background/Layer_0001_8.png<>uid://bprx7q2mnqtas::::res://assets/background/Layer_0010_1.png<>uid://b6sraf2jc5v26::::res://assets/background/Layer_0009_2.png<>uid://dartdrbkey402::::res://assets/background/Layer_0008_3.png<>uid://0221ws6krlfl::::res://assets/background/Layer_0007_Lights.png<>uid://lv1tw7hrij5s::::res://assets/background/Layer_0006_4.png<>uid://dp5i8vvsqxg1v::::res://assets/player/Hurt.png<>uid://cfp330sgucamy::::res://assets/background/Layer_0005_5.png<>uid://dc2pupfw1lnc8::::res://assets/background/Layer_0004_Lights.png<>uid://nh448uxqpypb::::res://assets/background/Layer_0003_6.png<>uid://dhpkr85t6uvoc::::res://assets/background/Layer_0002_7.png<>uid://bmxji3s8cdrfc::::res://assets/obstacles/Texture/TX Village Props.png<>uid://cpfg2i8m7hiuw::::res://assets/font/m5x7.ttf<>uid://cireubg54oav6::::res://assets/audio/cartoon-jump-6462-_1_.ogg
-world.tscn::PackedScene::4589034052279641454::1733957196::0::1::::<><>::res://Scripts/world.gd<>uid://2hu24g51nt80::::res://node_2d.tscn
-::res://Scripts/::1733957138
+::res://Scenes/::1733966686
+node_2d.tscn::PackedScene::1910813512640376463::1733966686::0::1::::<><>::res://Scripts/player.gd<>uid://bamxf65dj4kty::::res://assets/player/Idle.png<>uid://b48gr60jswg5n::::res://assets/player/Jump.png<>uid://daqwlryfk5sma::::res://assets/player/Run.png<>uid://baspb2fo2yfl3::::res://assets/background/Layer_0001_8.png<>uid://bprx7q2mnqtas::::res://assets/background/Layer_0010_1.png<>uid://b6sraf2jc5v26::::res://assets/background/Layer_0009_2.png<>uid://dartdrbkey402::::res://assets/background/Layer_0008_3.png<>uid://0221ws6krlfl::::res://assets/background/Layer_0007_Lights.png<>uid://lv1tw7hrij5s::::res://assets/background/Layer_0006_4.png<>uid://dp5i8vvsqxg1v::::res://assets/player/Hurt.png<>uid://cfp330sgucamy::::res://assets/background/Layer_0005_5.png<>uid://dc2pupfw1lnc8::::res://assets/background/Layer_0004_Lights.png<>uid://nh448uxqpypb::::res://assets/background/Layer_0003_6.png<>uid://dhpkr85t6uvoc::::res://assets/background/Layer_0002_7.png<>uid://bmxji3s8cdrfc::::res://assets/obstacles/Texture/TX Village Props.png<>uid://deap27oqfkt0b::::res://assets/player/Slide.png<>uid://cpfg2i8m7hiuw::::res://assets/font/m5x7.ttf<>uid://cireubg54oav6::::res://assets/audio/cartoon-jump-6462-_1_.ogg
+world.tscn::PackedScene::4589034052279641454::1733966686::0::1::::<><>::res://Scripts/world.gd<>uid://2hu24g51nt80::::res://node_2d.tscn
+::res://Scripts/::1733964774
 camera_control.gd::GDScript::-1::1733952175::0::1::::<>Camera2D<>::
 levels.gd::GDScript::-1::1733952175::0::1::::<>Node<>::
 objects.gd::GDScript::-1::1733952175::0::1::::<>Node<>::
-player.gd::GDScript::-1::1733957138::0::1::::<>CharacterBody2D<>::
-world.gd::GDScript::-1::1733952175::0::1::::<>Node<>::
+player.gd::GDScript::-1::1733964774::0::1::::<>CharacterBody2D<>::
+world.gd::GDScript::-1::1733960017::0::1::::<>Node<>::
