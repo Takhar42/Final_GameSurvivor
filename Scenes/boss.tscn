@@ -1,5 +1,6 @@
-[gd_scene load_steps=63 format=3 uid="uid://3pgt3p6jh6rh"]
+[gd_scene load_steps=64 format=3 uid="uid://3pgt3p6jh6rh"]
 
+[ext_resource type="Script" path="res://Scripts/boss.gd" id="1_aegsf"]
 [ext_resource type="Texture2D" uid="uid://ypxbumoy6m7m" path="res://assets/boss/03_demon_cleave/demon_cleave_1.png" id="1_g6ygu"]
 [ext_resource type="Texture2D" uid="uid://btao48j33d28t" path="res://assets/boss/03_demon_cleave/demon_cleave_2.png" id="2_do64v"]
 [ext_resource type="Texture2D" uid="uid://p7op70wv8y78" path="res://assets/boss/03_demon_cleave/demon_cleave_3.png" id="3_d5l2v"]
@@ -229,6 +230,77 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("42_6hghk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_e28r7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_od734")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_jyvey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_20orw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_fv7e2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_7wnp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_750gx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_2ani4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_qcb8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_q804l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_8g7vu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_qklr4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_viqu7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_o4t18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_0x832")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_g6due")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_mfepu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_5bc76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_fua6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_sdgg3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_gi0d8")
+}],
+"loop": true,
+"name": &"revive",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("49_5c8wg")
 }, {
 "duration": 1.0,
@@ -273,13 +345,16 @@ animations = [{
 size = Vector2(80, 80)
 
 [node name="Boss" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_aegsf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_ov4fo")
-animation = &"idle"
+animation = &"revive"
 autoplay = "idle"
-frame_progress = 0.915881
+frame_progress = 0.14653
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_aicgf")

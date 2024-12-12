@@ -466,6 +466,7 @@ centered = false
 position = Vector2(1, 583)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 position = Vector2(1151, 29)
 shape = SubResource("RectangleShape2D_rn01j")
 
@@ -589,4 +590,4 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Boss" parent="." instance=ExtResource("24_644rn")]
-position = Vector2(1096, 536)
+position = Vector2(944, -56)

@@ -60,7 +60,12 @@ func _process(delta):
 		# Generate and manage obstacles
 		generate_obs()
 		cleanup_obstacles()
-		
+		print(score)
+		if score/15 == 30:
+			game_live = false
+			$Node2D/Boss.position.x = $Node2D/Camera2D.position.x + 480
+			$Node2D/Boss.position.y = $Node2D/Camera2D.position.y + 210
+			
 		if $Node2D/Camera2D.position.x - $Node2D/StaticBody2D.position.x > screen_size.x * 1.5:
 			$Node2D/StaticBody2D.position.x += screen_size.x
 	else:

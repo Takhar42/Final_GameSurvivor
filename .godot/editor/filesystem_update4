@@ -1,3 +1,6 @@
 res://Scenes/node_2d.tscn
 res://Scenes/world.tscn
 res://Scenes/boss.tscn
+res://Scripts/world.gd
+res://Scripts/boss.gd
+res://Scripts/player.gd
