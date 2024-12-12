@@ -20,4 +20,3 @@ func _physics_process(delta: float) -> void:
 		velocity.y = jump_force
 
 	move_and_slide()
-
