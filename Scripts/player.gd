@@ -2,20 +2,22 @@ extends CharacterBody2D
 
 @export var MOVE_SPEED: float = 300.0
 @export var JUMP_VELOCITY: float = -600.0
+@export var HEALTH: float = 100
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var jump_audio: AudioStreamPlayer2D
 func _ready():
 	jump_audio = $JumpAudio # Initialize jump_audio properly here
+	$AnimatedSprite2D.play("idle")  # Default to idle animation
 
 func _physics_process(delta):
-
+	
 	velocity.y += gravity * delta
 	if is_on_floor():
 		$CollisionShape2D.disabled = false
 		if Input.is_action_pressed("ui_accept"):
-			$AnimatedSprite2D.play("run")
+			$AnimatedSprite2D.play("idle")
 			
 		elif Input.is_action_pressed("ui_up"):
 			velocity.y = JUMP_VELOCITY
@@ -46,3 +48,11 @@ func _physics_process(delta):
 		velocity.x = 0
 	
 	move_and_slide()
+
+func take_damage(amount):
+	HEALTH -= amount
+	if HEALTH <= 0:
+		die()
+
+func die():
+	print("Player defeated!")

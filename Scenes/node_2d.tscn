@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://2hu24g51nt80"]
+[gd_scene load_steps=82 format=3 uid="uid://2hu24g51nt80"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_wt5hg"]
 [ext_resource type="Texture2D" uid="uid://bamxf65dj4kty" path="res://assets/player/Idle.png" id="2_b434k"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://lv1tw7hrij5s" path="res://assets/background/Layer_0006_4.png" id="11_j1amg"]
 [ext_resource type="Texture2D" uid="uid://dp5i8vvsqxg1v" path="res://assets/player/Hurt.png" id="12_tpvpw"]
 [ext_resource type="Texture2D" uid="uid://cfp330sgucamy" path="res://assets/background/Layer_0005_5.png" id="12_w7ey0"]
+[ext_resource type="Texture2D" uid="uid://8tkftvb77j0d" path="res://assets/player/Death.png" id="13_0agtd"]
 [ext_resource type="Texture2D" uid="uid://dc2pupfw1lnc8" path="res://assets/background/Layer_0004_Lights.png" id="13_8dscu"]
 [ext_resource type="Texture2D" uid="uid://nh448uxqpypb" path="res://assets/background/Layer_0003_6.png" id="14_4ejrw"]
 [ext_resource type="Texture2D" uid="uid://dhpkr85t6uvoc" path="res://assets/background/Layer_0002_7.png" id="15_y2uib"]
@@ -22,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://ym7g1bvnshni" path="res://assets/player/Attacks.png" id="17_h5prb"]
 [ext_resource type="Texture2D" uid="uid://djve520pymkoj" path="res://assets/obstacles/Texture/sack.png" id="18_r540c"]
 [ext_resource type="Texture2D" uid="uid://dbfaheqr8rty7" path="res://assets/obstacles/Texture/anvil.png" id="19_306ky"]
+[ext_resource type="Script" path="res://Scripts/damageable.gd" id="20_owrh8"]
 [ext_resource type="AudioStream" uid="uid://cireubg54oav6" path="res://assets/audio/cartoon-jump-6462-_1_.ogg" id="23_4vdhu"]
 [ext_resource type="PackedScene" uid="uid://3pgt3p6jh6rh" path="res://Scenes/boss.tscn" id="24_644rn"]
 
@@ -59,6 +61,22 @@ region = Rect2(768, 64, 128, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqdpy"]
 atlas = ExtResource("17_h5prb")
 region = Rect2(896, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxas4"]
+atlas = ExtResource("13_0agtd")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlwx0"]
+atlas = ExtResource("13_0agtd")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8g7dv"]
+atlas = ExtResource("13_0agtd")
+region = Rect2(0, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4jpw"]
+atlas = ExtResource("13_0agtd")
+region = Rect2(128, 64, 128, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lkrca"]
 atlas = ExtResource("12_tpvpw")
@@ -237,6 +255,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxas4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlwx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8g7dv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4jpw")
+}],
+"loop": true,
+"name": &"death",
 "speed": 10.0
 }, {
 "frames": [{
@@ -483,38 +518,41 @@ scale = Vector2(2.49783, 1.05882)
 texture = ExtResource("5_sutcd")
 centered = false
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
 z_index = 1
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_wt5hg")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 texture_filter = 1
-position = Vector2(64, 336)
+position = Vector2(64, 314.667)
 sprite_frames = SubResource("SpriteFrames_nmd23")
-animation = &"attack"
-autoplay = "run"
+animation = &"death"
+autoplay = "idle"
 frame = 2
-frame_progress = 0.603943
+frame_progress = 0.224652
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 visible = false
 position = Vector2(66.6667, 322.667)
 shape = SubResource("RectangleShape2D_31suy")
 
-[node name="SlideCollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="SlideCollisionShape2D" type="CollisionShape2D" parent="Player"]
 visible = false
 position = Vector2(64, 336)
 shape = SubResource("RectangleShape2D_f5xtf")
 
-[node name="SwordCollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="SwordCollisionShape2D" type="CollisionShape2D" parent="Player"]
 visible = false
 position = Vector2(90.6667, 305.333)
 shape = SubResource("RectangleShape2D_62nk5")
 
-[node name="JumpAudio" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+[node name="JumpAudio" type="AudioStreamPlayer2D" parent="Player"]
 scale = Vector2(0.666667, 0.666667)
 stream = ExtResource("23_4vdhu")
+
+[node name="Damageable" type="Node" parent="Player"]
+script = ExtResource("20_owrh8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
@@ -574,6 +612,19 @@ polygon = PackedVector2Array(-9, -10, -9, -9, -21, -9, -21, -8, -22, -8, -22, -7
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="End" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 224.0
+offset_top = 112.0
+offset_right = 918.0
+offset_bottom = 192.0
+theme_override_fonts/font = ExtResource("17_gddyx")
+theme_override_font_sizes/font_size = 70
+text = "GAME OVER!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="Score" type="Label" parent="CanvasLayer"]
 texture_filter = 1
 offset_left = 8.0
@@ -585,17 +636,19 @@ theme_override_font_sizes/font_size = 50
 text = "Score:"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Start" type="Label" parent="CanvasLayer"]
 offset_left = 224.0
-offset_top = 280.0
+offset_top = 272.0
 offset_right = 918.0
-offset_bottom = 360.0
+offset_bottom = 352.0
 theme_override_fonts/font = ExtResource("17_gddyx")
 theme_override_font_sizes/font_size = 70
 text = "ENTER SPACE TO PLAY"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Boss" parent="." instance=ExtResource("24_644rn")]
 position = Vector2(944, -56)

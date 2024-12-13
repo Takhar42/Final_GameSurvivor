@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://3pgt3p6jh6rh"]
+[gd_scene load_steps=66 format=3 uid="uid://3pgt3p6jh6rh"]
 
 [ext_resource type="Script" path="res://Scripts/boss.gd" id="1_aegsf"]
 [ext_resource type="Texture2D" uid="uid://ypxbumoy6m7m" path="res://assets/boss/03_demon_cleave/demon_cleave_1.png" id="1_g6ygu"]
@@ -61,6 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://ceu5y5ndmvrqd" path="res://assets/boss/02_demon_walk/demon_walk_10.png" id="58_272d0"]
 [ext_resource type="Texture2D" uid="uid://bwlxupuqoy2wl" path="res://assets/boss/02_demon_walk/demon_walk_11.png" id="59_g77bq"]
 [ext_resource type="Texture2D" uid="uid://v0vkybqyutbv" path="res://assets/boss/02_demon_walk/demon_walk_12.png" id="60_4mf05"]
+[ext_resource type="Script" path="res://cleaver.gd" id="62_liaj4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ov4fo"]
 animations = [{
@@ -344,17 +345,28 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aicgf"]
 size = Vector2(80, 80)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hs43"]
+size = Vector2(50, 20)
+
 [node name="Boss" type="CharacterBody2D"]
-collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_aegsf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_ov4fo")
-animation = &"revive"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.14653
+frame_progress = 0.126988
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_aicgf")
+
+[node name="cleaver" type="Area2D" parent="."]
+script = ExtResource("62_liaj4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cleaver"]
+position = Vector2(-81, 24)
+shape = SubResource("RectangleShape2D_5hs43")
+
+[connection signal="body_entered" from="cleaver" to="cleaver" method="_on_body_entered"]
