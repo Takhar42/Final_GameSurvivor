@@ -2,10 +2,17 @@ extends Node
 
 
 @export var boss_scene = preload("res://Scenes/boss.tscn")
+
 const DINO_START_POS := Vector2i(150, 485)
 const CAM_START_POS := Vector2i(576, 324)
 const START_SPEED : float = 5
 const MAX_SPEED : int = 100
+
+@onready var player = $Node2D/Player
+@onready var ground = $Node2D/StaticBody2D
+@onready var camera = $Node2D/Camera2D
+@onready var boss = $Node2D/Boss
+
 var score : int
 var max_score : int
 var ground_height : int
@@ -17,16 +24,15 @@ var obstacles : Array = []
 var last_obs  # To track the last spawned obstacle
 var boss_spawned = false
 
-
 func _ready():
 	screen_size = get_window().size
 	
 	# Set up collision layers
-	$Node2D/Player.collision_layer = 0b001  # Player on layer 1
-	$Node2D/Player.collision_mask = 0b110   # Collide with layers 2 and 3 (ground and obstacles)
+	player.collision_layer = 0b001  # Player on layer 1
+	player.collision_mask = 0b110   # Collide with layers 2 and 3 (ground and obstacles)
 	
-	$Node2D/StaticBody2D.collision_layer = 0b010     # Ground on layer 2
-	$Node2D/StaticBody2D.collision_mask = 0b001      # Only collide with player
+	ground.collision_layer = 0b010     # Ground on layer 2
+	ground.collision_mask = 0b001      # Only collide with player
 	
 	# Get individual obstacle templates
 	var obstacles_parent = $Node2D/Area2D
@@ -55,8 +61,8 @@ func init_game():
 func _process(delta):
 	if game_live:
 		speed = START_SPEED
-		$Node2D/Player.position.x += speed 
-		$Node2D/Camera2D.position.x += speed
+		player.position.x += speed 
+		camera.position.x += speed
 		score += speed
 		show_score()
 		
@@ -67,11 +73,11 @@ func _process(delta):
 		if score/15 == 20:
 			game_live = false
 			clear_all()
-			$Node2D/Boss.position.x = $Node2D/Camera2D.position.x + 300
-			$Node2D/Boss.position.y = $Node2D/Camera2D.position.y + 60
+			boss.position.x = camera.position.x + 300
+			boss.position.y = camera.position.y + 60
 			
-		if $Node2D/Camera2D.position.x - $Node2D/StaticBody2D.position.x > screen_size.x * 1.5:
-			$Node2D/StaticBody2D.position.x += screen_size.x
+		if camera.position.x - ground.position.x > screen_size.x * 1.5:
+			ground.position.x += screen_size.x
 	else:
 		if Input.is_action_just_pressed("ui_accept"):
 			$Node2D/CanvasLayer.get_node("Start").hide()
@@ -84,10 +90,10 @@ func generate_obs():
 		return
 
 	# Spawn condition - either no obstacles or last one is far enough behind
-	if obstacles.is_empty() or (last_obs != null and last_obs.position.x < $Node2D/Camera2D.position.x + randi_range(400, 600)):
+	if obstacles.is_empty() or (last_obs != null and last_obs.position.x < camera.position.x + randi_range(400, 600)):
 		var obs = obstacle_types[0].duplicate()
 		var obs_y : int = 600
-		var obs_x : int = $Node2D/Camera2D.position.x + screen_size.x
+		var obs_x : int = camera.position.x + screen_size.x
 		
 		last_obs = obs
 		add_obs(obs, obs_x, obs_y)
@@ -112,12 +118,12 @@ func add_obs(obs, x, y):
 func _on_obstacle_collision(area):
 	print("Collision detected!")
 	print("Collided with: ", area.name)
-	print("Player position: ", $Node2D/Player.position)
+	print("Player position: ", player.position)
 	game_over()
 
 func cleanup_obstacles():
 	for obs in obstacles:
-		if obs.position.x < ($Node2D/Camera2D.position.x - screen_size.x):
+		if obs.position.x < (camera.position.x - screen_size.x):
 			remove_obs(obs)
 
 func clear_all():
