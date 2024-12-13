@@ -37,7 +37,28 @@ offset_right = 918.0
 offset_bottom = 352.0
 theme_override_fonts/font = ExtResource("1_aw0ca")
 theme_override_font_sizes/font_size = 70
-text = "ENTER SPACE TO PLAY"
+text = "HIT SPACE TO PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="notes" type="Label" parent="Start"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.207493
+anchor_top = 1.1
+anchor_right = 0.59366
+anchor_bottom = 2.2
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 102.0
+offset_bottom = 49.0
+theme_override_fonts/font = ExtResource("1_aw0ca")
+theme_override_font_sizes/font_size = 50
+text = "Keybinds:
+- arrow keys to move
+- 's' to attack"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true

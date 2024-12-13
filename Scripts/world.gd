@@ -5,7 +5,7 @@ extends Node
 
 const DINO_START_POS := Vector2i(150, 485)
 const CAM_START_POS := Vector2i(576, 324)
-const START_SPEED : float = 5
+const START_SPEED : float = 10
 const MAX_SPEED : int = 100
 
 @onready var player = $Player
@@ -62,7 +62,7 @@ func init_game():
 func _process(delta):
 	if game_live:
 		speed = START_SPEED
-		player.position.x += speed 
+		player.position.x += speed
 		camera.position.x += speed
 		score += speed
 		show_score()
