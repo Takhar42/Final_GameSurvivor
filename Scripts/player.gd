@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY: float = -600.0
 @export var HEALTH: float = 100
 
+@onready var sword = $sword
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var jump_audio: AudioStreamPlayer2D
@@ -43,6 +44,10 @@ func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		$AnimatedSprite2D.flip_h = direction < 0
+		if direction < 0:
+			sword.scale.x = -1;
+		else:
+			sword.scale.x = 1;
 		velocity.x = direction * MOVE_SPEED
 	else:
 		velocity.x = 0

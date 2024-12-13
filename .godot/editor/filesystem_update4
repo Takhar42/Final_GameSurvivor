@@ -3,3 +3,4 @@ res://Scenes/node_2d.tscn
 res://Scenes/world.tscn
 res://Scenes/boss.tscn
 res://Scenes/score_end.tscn
+res://Scripts/player.gd

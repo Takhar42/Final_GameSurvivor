@@ -392,14 +392,14 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqw30"]
+size = Vector2(26, 29.3333)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ko6eh"]
 size = Vector2(26.6667, 48.0003)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lj6je"]
 size = Vector2(20, 16.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqw30"]
-size = Vector2(26, 29.3333)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_a35f0")
@@ -410,6 +410,12 @@ sprite_frames = SubResource("SpriteFrames_enrvx")
 animation = &"idle"
 autoplay = "idle"
 
+[node name="sword" type="Area2D" parent="."]
+
+[node name="SwordCollisionShape2D" type="CollisionShape2D" parent="sword"]
+position = Vector2(24, 8)
+shape = SubResource("RectangleShape2D_yqw30")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(0, 8)
@@ -419,11 +425,6 @@ shape = SubResource("RectangleShape2D_ko6eh")
 visible = false
 position = Vector2(0, 23.75)
 shape = SubResource("RectangleShape2D_lj6je")
-
-[node name="SwordCollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(24, 8)
-shape = SubResource("RectangleShape2D_yqw30")
 
 [node name="JumpAudio" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2(0.666667, 0.666667)
