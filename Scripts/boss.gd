@@ -54,8 +54,10 @@ func move_horizontally(delta):
 		return  # Ensure the player node is valid
 
 	# Move towards the player's x-position
-	var direction = sign(player.position.x - position.x + 100)
-	if abs(player.position.x - position.x + 100) < 80:
+	var distance = player.global_position.x - global_position.x + 100
+	var direction = sign(distance)
+	print(distance)
+	if (distance < 0 and distance > -150) or (distance > 0 and distance < 360):
 		sprite.play("idle")
 		return
 	velocity.x = direction * move_speed

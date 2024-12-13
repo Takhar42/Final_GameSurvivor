@@ -4,3 +4,5 @@ res://Scenes/world.tscn
 res://Scenes/boss.tscn
 res://Scenes/score_end.tscn
 res://Scripts/player.gd
+res://Scripts/world.gd
+res://Scripts/boss.gd

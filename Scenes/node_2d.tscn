@@ -217,10 +217,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Boss" parent="." instance=ExtResource("24_644rn")]
-position = Vector2(944, -56)
+position = Vector2(1016, -304)
 
 [node name="Player" parent="." instance=ExtResource("17_tqyd5")]
 position = Vector2(104, 544)
-MOVE_SPEED = 300.0
-JUMP_VELOCITY = -600.0
-HEALTH = 100.0

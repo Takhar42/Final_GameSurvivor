@@ -64,11 +64,11 @@ func _process(delta):
 		generate_obs()
 		cleanup_obstacles()
 
-		if score/15 == 200:
+		if score/15 == 20:
 			game_live = false
 			clear_all()
-			$Node2D/Boss.position.x = $Node2D/Camera2D.position.x + 480
-			$Node2D/Boss.position.y = $Node2D/Camera2D.position.y + 250
+			$Node2D/Boss.position.x = $Node2D/Camera2D.position.x + 300
+			$Node2D/Boss.position.y = $Node2D/Camera2D.position.y + 60
 			
 		if $Node2D/Camera2D.position.x - $Node2D/StaticBody2D.position.x > screen_size.x * 1.5:
 			$Node2D/StaticBody2D.position.x += screen_size.x
