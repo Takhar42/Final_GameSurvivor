@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://2hu24g51nt80"]
+[gd_scene load_steps=18 format=3 uid="uid://2hu24g51nt80"]
 
 [ext_resource type="Texture2D" uid="uid://bprx7q2mnqtas" path="res://assets/background/Layer_0010_1.png" id="7_vu6rd"]
 [ext_resource type="Texture2D" uid="uid://b6sraf2jc5v26" path="res://assets/background/Layer_0009_2.png" id="8_kyfku"]
@@ -7,19 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://lv1tw7hrij5s" path="res://assets/background/Layer_0006_4.png" id="11_j1amg"]
 [ext_resource type="Texture2D" uid="uid://cfp330sgucamy" path="res://assets/background/Layer_0005_5.png" id="12_w7ey0"]
 [ext_resource type="Texture2D" uid="uid://dc2pupfw1lnc8" path="res://assets/background/Layer_0004_Lights.png" id="13_8dscu"]
+[ext_resource type="PackedScene" uid="uid://cwlr2hjj2it2q" path="res://Scenes/displays.tscn" id="14_3wkxl"]
 [ext_resource type="Texture2D" uid="uid://nh448uxqpypb" path="res://assets/background/Layer_0003_6.png" id="14_4ejrw"]
 [ext_resource type="Texture2D" uid="uid://dhpkr85t6uvoc" path="res://assets/background/Layer_0002_7.png" id="15_y2uib"]
 [ext_resource type="Texture2D" uid="uid://bmxji3s8cdrfc" path="res://assets/obstacles/Texture/rock.png" id="16_3sy7q"]
 [ext_resource type="PackedScene" uid="uid://4xsh4h3f6eij" path="res://Scenes/ground.tscn" id="16_78jsg"]
 [ext_resource type="Texture2D" uid="uid://pmkpcqoldjy7" path="res://assets/obstacles/Texture/tree_stump.png" id="17_4py12"]
-[ext_resource type="FontFile" uid="uid://cpfg2i8m7hiuw" path="res://assets/font/m5x7.ttf" id="17_gddyx"]
 [ext_resource type="PackedScene" uid="uid://dplev6niebxst" path="res://Scenes/player.tscn" id="17_tqyd5"]
 [ext_resource type="Texture2D" uid="uid://djve520pymkoj" path="res://assets/obstacles/Texture/sack.png" id="18_r540c"]
 [ext_resource type="Texture2D" uid="uid://dbfaheqr8rty7" path="res://assets/obstacles/Texture/anvil.png" id="19_306ky"]
 [ext_resource type="PackedScene" uid="uid://3pgt3p6jh6rh" path="res://Scenes/boss.tscn" id="24_644rn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w48qf"]
-size = Vector2(192, 32)
 
 [node name="Node2D" type="Node2D"]
 
@@ -106,21 +103,6 @@ centered = false
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
 
-[node name="Platform" type="StaticBody2D" parent="."]
-position = Vector2(125, 907)
-
-[node name="ColorRect" type="ColorRect" parent="Platform"]
-offset_left = 359.0
-offset_top = -47.0
-offset_right = 551.0
-offset_bottom = -15.0
-color = Color(0, 1, 0, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2(447, -31)
-shape = SubResource("RectangleShape2D_w48qf")
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
@@ -160,45 +142,7 @@ texture = ExtResource("19_306ky")
 position = Vector2(96, -16)
 polygon = PackedVector2Array(-9, -10, -9, -9, -21, -9, -21, -8, -22, -8, -22, -7, -21, -7, -21, -6, -20, -6, -20, -5, -19, -5, -19, -4, -17, -4, -17, -3, -14, -3, -14, -2, -8, -2, -8, -1, -6, -1, -6, 0, -5, 0, -5, 2, -4, 2, -4, 4, -6, 4, -6, 5, -8, 5, -8, 6, -10, 6, -10, 7, -11, 7, -11, 10, 14, 10, 14, 7, 13, 7, 13, 6, 11, 6, 11, 5, 9, 5, 9, 4, 7, 4, 7, -1, 9, -1, 9, -2, 11, -2, 11, -3, 13, -3, 13, -4, 15, -4, 15, -5, 17, -5, 17, -6, 19, -6, 19, -7, 20, -7, 20, -9, 19, -9, 19, -10)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="End" type="Label" parent="CanvasLayer"]
-visible = false
-offset_left = 224.0
-offset_top = 112.0
-offset_right = 918.0
-offset_bottom = 192.0
-theme_override_fonts/font = ExtResource("17_gddyx")
-theme_override_font_sizes/font_size = 70
-text = "GAME OVER!"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Score" type="Label" parent="CanvasLayer"]
-texture_filter = 1
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 102.0
-offset_bottom = 49.0
-theme_override_fonts/font = ExtResource("17_gddyx")
-theme_override_font_sizes/font_size = 50
-text = "Score:"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Start" type="Label" parent="CanvasLayer"]
-offset_left = 224.0
-offset_top = 272.0
-offset_right = 918.0
-offset_bottom = 352.0
-theme_override_fonts/font = ExtResource("17_gddyx")
-theme_override_font_sizes/font_size = 70
-text = "ENTER SPACE TO PLAY"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
+[node name="Displays" parent="." instance=ExtResource("14_3wkxl")]
 
 [node name="Boss" parent="." instance=ExtResource("24_644rn")]
 position = Vector2(1016, -304)

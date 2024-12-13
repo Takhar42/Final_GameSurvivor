@@ -12,6 +12,7 @@ const MAX_SPEED : int = 100
 @onready var ground = $Node2D/Ground
 @onready var camera = $Node2D/Camera2D
 @onready var boss = $Node2D/Boss
+@onready var displays = $Node2D/Displays
 
 var score : int
 var max_score : int
@@ -56,7 +57,7 @@ func init_game():
 	# Clear any existing obstacles
 	clear_all()
 	
-	$Node2D/CanvasLayer.get_node("Start").show()
+	displays.get_node("Start").show()
 
 func _process(delta):
 	if game_live:
@@ -80,7 +81,7 @@ func _process(delta):
 			ground.position.x += screen_size.x
 	else:
 		if Input.is_action_just_pressed("ui_accept"):
-			$Node2D/CanvasLayer.get_node("Start").hide()
+			displays.get_node("Start").hide()
 			game_live = true
 	
 func generate_obs():
@@ -141,10 +142,10 @@ func remove_obs(obs):
 func game_over():
 	print("Game Over!")
 	game_live = false
-	$Node2D/CanvasLayer.get_node("End").show()
+	displays.get_node("End").show()
 	init_game()
 
 func show_score():
-	$Node2D/CanvasLayer.get_node("Score").text = "Score: " + str(score/15)
+	displays.get_node("Score").text = "Score: " + str(score/15)
 func show_high_score():
-	$Node2D/CanvasLayer.get_node("High Score").text = "High Score: " + str(score/15)
+	displays.get_node("High Score").text = "High Score: " + str(score/15)

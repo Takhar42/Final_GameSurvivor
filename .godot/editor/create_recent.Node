@@ -1,9 +1,9 @@
+CanvasLayer
 StaticBody2D
 Area2D
 CharacterBody2D
 Node
 CollisionShape2D
 Label
-CanvasLayer
 AnimatedSprite2D
 AudioStreamPlayer2D

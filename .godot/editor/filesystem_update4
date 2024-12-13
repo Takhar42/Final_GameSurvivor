@@ -5,3 +5,4 @@ res://Scenes/score_end.tscn
 res://Scenes/player.tscn
 res://Scenes/ground.tscn
 res://Scripts/world.gd
+res://Scenes/displays.tscn
