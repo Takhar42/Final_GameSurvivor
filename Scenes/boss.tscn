@@ -61,7 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://ceu5y5ndmvrqd" path="res://assets/boss/02_demon_walk/demon_walk_10.png" id="58_272d0"]
 [ext_resource type="Texture2D" uid="uid://bwlxupuqoy2wl" path="res://assets/boss/02_demon_walk/demon_walk_11.png" id="59_g77bq"]
 [ext_resource type="Texture2D" uid="uid://v0vkybqyutbv" path="res://assets/boss/02_demon_walk/demon_walk_12.png" id="60_4mf05"]
-[ext_resource type="Script" path="res://cleaver.gd" id="62_liaj4"]
+[ext_resource type="Script" path="res://Scripts/cleaver.gd" id="62_liaj4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ov4fo"]
 animations = [{

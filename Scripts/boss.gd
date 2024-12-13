@@ -59,11 +59,10 @@ func move_horizontally(delta):
 		sprite.play("idle")
 		return
 	velocity.x = direction * move_speed
-	print(direction)
 	if direction > 0:
 		sprite.flip_h = true  # Face right
-		cleaver.scale.x *= -1;
-	elif direction < 0:
+		cleaver.scale.x = -1;
+	else:
 		sprite.flip_h = false   # Face left
 		cleaver.scale.x = 1
 	move_and_slide()
