@@ -1,8 +1,8 @@
+CharacterBody2D
 Node
 CollisionShape2D
 Area2D
 Label
 CanvasLayer
 AnimatedSprite2D
-CharacterBody2D
 AudioStreamPlayer2D

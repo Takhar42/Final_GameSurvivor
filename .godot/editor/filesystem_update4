@@ -1,10 +1,5 @@
+res://Scenes/player.tscn
 res://Scenes/node_2d.tscn
-res://Scripts/boss.gd
-res://Scripts/world.gd
 res://Scenes/world.tscn
 res://Scenes/boss.tscn
 res://Scenes/score_end.tscn
-res://Scripts/player.gd
-res://Scripts/camera_control.gd
-res://cleaver.gd
-res://Scripts/damageable.gd
