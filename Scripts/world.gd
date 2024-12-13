@@ -8,12 +8,12 @@ const CAM_START_POS := Vector2i(576, 324)
 const START_SPEED : float = 5
 const MAX_SPEED : int = 100
 
-@onready var player = $Node2D/Player
-@onready var ground = $Node2D/Ground
-@onready var camera = $Node2D/Camera2D
-@onready var boss = $Node2D/Boss
-@onready var displays = $Node2D/Displays
-@onready var obstacles = $Node2D/Obstacles
+@onready var player = $Player
+@onready var ground = $Ground
+@onready var camera = $Camera2D
+@onready var boss = $Boss
+@onready var displays = $Displays
+@onready var obstacles = $Obstacles
 
 var score : int
 var max_score : int
@@ -113,7 +113,7 @@ func add_obs(obs, x, y):
 		print("Connecting body collision signal")
 		obs.body_entered.connect(_on_obstacle_collision)
 	
-	$Node2D.add_child(obs)
+	add_child(obs)
 	obstacles_arr.append(obs)
 
 func _on_obstacle_collision(area):
@@ -147,5 +147,5 @@ func game_over():
 
 func show_score():
 	displays.get_node("Score").text = "Score: " + str(score/15)
-func show_high_score():
-	displays.get_node("High Score").text = "High Score: " + str(score/15)
+#func show_high_score():
+	#displays.get_node("High Score").text = "High Score: " + str(score/15)

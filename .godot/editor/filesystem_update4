@@ -1,10 +1,11 @@
-res://Scenes/node_2d.tscn
 res://Scenes/world.tscn
+res://Scripts/world.gd
+res://Scenes/node_2d.tscn
 res://Scenes/boss.tscn
 res://Scenes/score_end.tscn
 res://Scenes/player.tscn
 res://Scenes/ground.tscn
-res://Scripts/world.gd
 res://Scenes/displays.tscn
 res://Scenes/obstacles.tscn
 res://Scenes/bg.tscn
+res://Scenes/temp.tscn

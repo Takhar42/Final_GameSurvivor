@@ -1,9 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6m7yq0u0s7xa"]
+[gd_scene load_steps=8 format=3 uid="uid://2hu24g51nt80"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_jeina"]
-[ext_resource type="PackedScene" uid="uid://2hu24g51nt80" path="res://node_2d.tscn" id="2_bgrcg"]
+[ext_resource type="PackedScene" uid="uid://s5ej65stld57" path="res://Scenes/bg.tscn" id="2_rls1m"]
+[ext_resource type="PackedScene" uid="uid://ljl4440v7oul" path="res://Scenes/obstacles.tscn" id="3_ug36q"]
+[ext_resource type="PackedScene" uid="uid://cwlr2hjj2it2q" path="res://Scenes/displays.tscn" id="4_5b47r"]
+[ext_resource type="PackedScene" uid="uid://3pgt3p6jh6rh" path="res://Scenes/boss.tscn" id="5_fww62"]
+[ext_resource type="PackedScene" uid="uid://4xsh4h3f6eij" path="res://Scenes/ground.tscn" id="6_jhoxo"]
+[ext_resource type="PackedScene" uid="uid://dplev6niebxst" path="res://Scenes/player.tscn" id="7_gyelo"]
 
-[node name="World" type="Node"]
+[node name="World" type="Node2D"]
 script = ExtResource("1_jeina")
 
-[node name="Node2D" parent="." instance=ExtResource("2_bgrcg")]
+[node name="Bg" parent="." instance=ExtResource("2_rls1m")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="Obstacles" parent="." instance=ExtResource("3_ug36q")]
+
+[node name="Displays" parent="." instance=ExtResource("4_5b47r")]
+
+[node name="Boss" parent="." instance=ExtResource("5_fww62")]
+position = Vector2(1016, -304)
+
+[node name="Ground" parent="." instance=ExtResource("6_jhoxo")]
+position = Vector2(0, 584)
+
+[node name="Player" parent="." instance=ExtResource("7_gyelo")]
+position = Vector2(104, 544)
