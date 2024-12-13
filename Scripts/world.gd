@@ -9,7 +9,7 @@ const START_SPEED : float = 5
 const MAX_SPEED : int = 100
 
 @onready var player = $Node2D/Player
-@onready var ground = $Node2D/StaticBody2D
+@onready var ground = $Node2D/Ground
 @onready var camera = $Node2D/Camera2D
 @onready var boss = $Node2D/Boss
 

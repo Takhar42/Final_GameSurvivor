@@ -1,8 +1,7 @@
-res://Scenes/player.tscn
 res://Scenes/node_2d.tscn
 res://Scenes/world.tscn
 res://Scenes/boss.tscn
 res://Scenes/score_end.tscn
-res://Scripts/player.gd
+res://Scenes/player.tscn
+res://Scenes/ground.tscn
 res://Scripts/world.gd
-res://Scripts/boss.gd

@@ -1,6 +1,5 @@
-[gd_scene load_steps=20 format=3 uid="uid://2hu24g51nt80"]
+[gd_scene load_steps=19 format=3 uid="uid://2hu24g51nt80"]
 
-[ext_resource type="Texture2D" uid="uid://baspb2fo2yfl3" path="res://assets/background/Layer_0001_8.png" id="5_sutcd"]
 [ext_resource type="Texture2D" uid="uid://bprx7q2mnqtas" path="res://assets/background/Layer_0010_1.png" id="7_vu6rd"]
 [ext_resource type="Texture2D" uid="uid://b6sraf2jc5v26" path="res://assets/background/Layer_0009_2.png" id="8_kyfku"]
 [ext_resource type="Texture2D" uid="uid://dartdrbkey402" path="res://assets/background/Layer_0008_3.png" id="9_50na4"]
@@ -11,15 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://nh448uxqpypb" path="res://assets/background/Layer_0003_6.png" id="14_4ejrw"]
 [ext_resource type="Texture2D" uid="uid://dhpkr85t6uvoc" path="res://assets/background/Layer_0002_7.png" id="15_y2uib"]
 [ext_resource type="Texture2D" uid="uid://bmxji3s8cdrfc" path="res://assets/obstacles/Texture/rock.png" id="16_3sy7q"]
+[ext_resource type="PackedScene" uid="uid://4xsh4h3f6eij" path="res://Scenes/ground.tscn" id="16_78jsg"]
 [ext_resource type="Texture2D" uid="uid://pmkpcqoldjy7" path="res://assets/obstacles/Texture/tree_stump.png" id="17_4py12"]
 [ext_resource type="FontFile" uid="uid://cpfg2i8m7hiuw" path="res://assets/font/m5x7.ttf" id="17_gddyx"]
 [ext_resource type="PackedScene" uid="uid://dplev6niebxst" path="res://Scenes/player.tscn" id="17_tqyd5"]
 [ext_resource type="Texture2D" uid="uid://djve520pymkoj" path="res://assets/obstacles/Texture/sack.png" id="18_r540c"]
 [ext_resource type="Texture2D" uid="uid://dbfaheqr8rty7" path="res://assets/obstacles/Texture/anvil.png" id="19_306ky"]
 [ext_resource type="PackedScene" uid="uid://3pgt3p6jh6rh" path="res://Scenes/boss.tscn" id="24_644rn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rn01j"]
-size = Vector2(2304, 72)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w48qf"]
 size = Vector2(192, 32)
@@ -104,20 +101,6 @@ motion_mirroring = Vector2(1152, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
 scale = Vector2(1.24138, 0.817)
 texture = ExtResource("15_y2uib")
-centered = false
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(1, 583)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-visible = false
-position = Vector2(1151, 29)
-shape = SubResource("RectangleShape2D_rn01j")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(0, -7)
-scale = Vector2(2.49783, 1.05882)
-texture = ExtResource("5_sutcd")
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -219,6 +202,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Boss" parent="." instance=ExtResource("24_644rn")]
 position = Vector2(1016, -304)
+
+[node name="Ground" parent="." instance=ExtResource("16_78jsg")]
+position = Vector2(0, 584)
 
 [node name="Player" parent="." instance=ExtResource("17_tqyd5")]
 position = Vector2(104, 544)
