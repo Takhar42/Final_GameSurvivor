@@ -13,6 +13,7 @@ const MAX_SPEED : int = 100
 @onready var camera = $Node2D/Camera2D
 @onready var boss = $Node2D/Boss
 @onready var displays = $Node2D/Displays
+@onready var obstacles = $Node2D/Obstacles
 
 var score : int
 var max_score : int
@@ -21,7 +22,7 @@ var speed : float
 var screen_size : Vector2i
 var game_live : bool
 var obstacle_types := []
-var obstacles : Array = []
+var obstacles_arr : Array = []
 var last_obs  # To track the last spawned obstacle
 var boss_spawned = false
 
@@ -36,12 +37,11 @@ func _ready():
 	ground.collision_mask = 0b001      # Only collide with player
 	
 	# Get individual obstacle templates
-	var obstacles_parent = $Node2D/Area2D
 	
 	# Create separate Area2D templates for each sprite
-	for sprite in obstacles_parent.get_children():
+	for sprite in obstacles.get_children():
 		if sprite is Sprite2D:
-			var template = obstacles_parent.duplicate()  # Duplicate the Area2D
+			var template = obstacles.duplicate()  # Duplicate the Area2D
 			# Remove all sprites except the current one
 			for child in template.get_children():
 				if child is Sprite2D and child.name != sprite.name:
@@ -71,7 +71,7 @@ func _process(delta):
 		generate_obs()
 		cleanup_obstacles()
 
-		if score/15 == 20:
+		if score/15 == 200:
 			game_live = false
 			clear_all()
 			boss.position.x = camera.position.x + 300
@@ -87,11 +87,11 @@ func _process(delta):
 func generate_obs():
 	# Check if we already have max obstacles
 	var max_obstacles = randi() % 4 + 1  # This gives us 1-4
-	if obstacles.size() >= max_obstacles:
+	if obstacles_arr.size() >= max_obstacles:
 		return
 
 	# Spawn condition - either no obstacles or last one is far enough behind
-	if obstacles.is_empty() or (last_obs != null and last_obs.position.x < camera.position.x + randi_range(400, 600)):
+	if obstacles_arr.is_empty() or (last_obs != null and last_obs.position.x < camera.position.x + randi_range(400, 600)):
 		var obs = obstacle_types[0].duplicate()
 		var obs_y : int = 600
 		var obs_x : int = camera.position.x + screen_size.x
@@ -114,7 +114,7 @@ func add_obs(obs, x, y):
 		obs.body_entered.connect(_on_obstacle_collision)
 	
 	$Node2D.add_child(obs)
-	obstacles.append(obs)
+	obstacles_arr.append(obs)
 
 func _on_obstacle_collision(area):
 	print("Collision detected!")
@@ -123,26 +123,26 @@ func _on_obstacle_collision(area):
 	game_over()
 
 func cleanup_obstacles():
-	for obs in obstacles:
+	for obs in obstacles_arr:
 		if obs.position.x < (camera.position.x - screen_size.x):
 			remove_obs(obs)
 
 func clear_all():
-	for obs in obstacles:
+	for obs in obstacles_arr:
 		obs.queue_free()
-	obstacles.clear()
+	obstacles_arr.clear()
 		
 func remove_obs(obs):
 	if obs.has_signal("area_entered"):
 		if obs.area_entered.is_connected(_on_obstacle_collision):
 			obs.area_entered.disconnect(_on_obstacle_collision)
 	obs.queue_free()
-	obstacles.erase(obs)
+	obstacles_arr.erase(obs)
 
 func game_over():
 	print("Game Over!")
 	game_live = false
-	displays.get_node("End").show()
+	#displays.get_node("End").show()
 	init_game()
 
 func show_score():

@@ -1,6 +1,6 @@
+Area2D
 CanvasLayer
 StaticBody2D
-Area2D
 CharacterBody2D
 Node
 CollisionShape2D
