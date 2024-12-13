@@ -48,9 +48,7 @@ func init_game():
 	game_live = false
 	
 	# Clear any existing obstacles
-	for obs in obstacles:
-		obs.queue_free()
-	obstacles.clear()
+	clear_all()
 	
 	$Node2D/CanvasLayer.get_node("Start").show()
 
@@ -66,8 +64,9 @@ func _process(delta):
 		generate_obs()
 		cleanup_obstacles()
 
-		if score/15 == 30:
+		if score/15 == 200:
 			game_live = false
+			clear_all()
 			$Node2D/Boss.position.x = $Node2D/Camera2D.position.x + 480
 			$Node2D/Boss.position.y = $Node2D/Camera2D.position.y + 250
 			
@@ -121,6 +120,11 @@ func cleanup_obstacles():
 		if obs.position.x < ($Node2D/Camera2D.position.x - screen_size.x):
 			remove_obs(obs)
 
+func clear_all():
+	for obs in obstacles:
+		obs.queue_free()
+	obstacles.clear()
+		
 func remove_obs(obs):
 	if obs.has_signal("area_entered"):
 		if obs.area_entered.is_connected(_on_obstacle_collision):
