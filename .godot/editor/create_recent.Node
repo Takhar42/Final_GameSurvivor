@@ -1,2 +1,11 @@
-AudioStreamPlayer2D
+Label
+ParallaxBackground
+Parallax2D
+Area2D
+CanvasLayer
+StaticBody2D
+CharacterBody2D
+Node
 CollisionShape2D
+AnimatedSprite2D
+AudioStreamPlayer2D

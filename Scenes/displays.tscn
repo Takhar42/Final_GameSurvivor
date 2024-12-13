@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwlr2hjj2it2q"]
+
+[ext_resource type="FontFile" uid="uid://cpfg2i8m7hiuw" path="res://assets/font/m5x7.ttf" id="1_aw0ca"]
+
+[node name="Displays" type="CanvasLayer"]
+
+[node name="End" type="Label" parent="."]
+visible = false
+offset_left = 224.0
+offset_top = 272.0
+offset_right = 918.0
+offset_bottom = 352.0
+theme_override_fonts/font = ExtResource("1_aw0ca")
+theme_override_font_sizes/font_size = 70
+text = "GAME OVER!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Score" type="Label" parent="."]
+texture_filter = 1
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 102.0
+offset_bottom = 49.0
+theme_override_fonts/font = ExtResource("1_aw0ca")
+theme_override_font_sizes/font_size = 50
+text = "Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Start" type="Label" parent="."]
+offset_left = 224.0
+offset_top = 272.0
+offset_right = 918.0
+offset_bottom = 352.0
+theme_override_fonts/font = ExtResource("1_aw0ca")
+theme_override_font_sizes/font_size = 70
+text = "HIT SPACE TO PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="notes" type="Label" parent="Start"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.207493
+anchor_top = 1.1
+anchor_right = 0.59366
+anchor_bottom = 2.2
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 102.0
+offset_bottom = 49.0
+theme_override_fonts/font = ExtResource("1_aw0ca")
+theme_override_font_sizes/font_size = 50
+text = "Keybinds:
+- arrow keys to move
+- 's' to attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://ljl4440v7oul"]
+
+[ext_resource type="Texture2D" uid="uid://bmxji3s8cdrfc" path="res://assets/obstacles/Texture/rock.png" id="1_f8e8k"]
+[ext_resource type="Texture2D" uid="uid://pmkpcqoldjy7" path="res://assets/obstacles/Texture/tree_stump.png" id="2_3nur4"]
+[ext_resource type="Texture2D" uid="uid://djve520pymkoj" path="res://assets/obstacles/Texture/sack.png" id="3_5neal"]
+[ext_resource type="Texture2D" uid="uid://dbfaheqr8rty7" path="res://assets/obstacles/Texture/anvil.png" id="4_nilex"]
+
+[node name="Obstacles" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -16)
+texture = ExtResource("1_f8e8k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(1.04167, 0.847458)
+polygon = PackedVector2Array(5.5, -17.5, -12.5, -17.5, -12.5, -16.3, -24, -4, -24, 0, -24, 8, -22.5, 11.4, -20, 12, -16, 12, 16, 12, 24, 8, 24, 4, 24, 0, 16.5, -10.4, 12, -12, 9.3, -12.5, 5.5, -16.3)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(138, -20)
+texture = ExtResource("2_3nur4")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(139, -19)
+polygon = PackedVector2Array(-1.5, -13.5, -1.5, -12.5, -8.5, -12.5, -8.5, -11.5, -10.5, -11.5, -10.5, -10.5, -11.5, -10.5, -11.5, -1.5, -13.5, -1.5, -13.5, -2.5, -16.5, -2.5, -16.5, 0.5, -15.5, 0.5, -15.5, 1.5, -14.5, 1.5, -14.5, 2.5, -13.5, 2.5, -13.5, 4.5, -12.5, 4.5, -12.5, 8.5, -13.5, 8.5, -13.5, 13.5, 14.5, 13.5, 14.5, 3.5, 13.5, 3.5, 13.5, -4.5, 12.5, -4.5, 12.5, -11.5, 11.5, -11.5, 11.5, -12.5, 9.5, -12.5, 9.5, -13.5)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(51, -24)
+texture = ExtResource("3_5neal")
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="."]
+position = Vector2(51, -24)
+polygon = PackedVector2Array(4.5, -16.5, 4.5, -15.5, 3.5, -15.5, 3.5, -14.5, 1.5, -14.5, 1.5, -13.5, -3.5, -13.5, -3.5, -14.5, -6.5, -14.5, -6.5, -11.5, -5.5, -11.5, -5.5, -9.5, -4.5, -9.5, -4.5, -7.5, -5.5, -7.5, -5.5, -6.5, -4.5, -6.5, -4.5, -4.5, -5.5, -4.5, -5.5, -3.5, -6.5, -3.5, -6.5, -2.5, -7.5, -2.5, -7.5, -1.5, -8.5, -1.5, -8.5, 0.5, -9.5, 0.5, -9.5, 2.5, -10.5, 2.5, -10.5, 5.5, -11.5, 5.5, -11.5, 9.5, -12.5, 9.5, -12.5, 14.5, -11.5, 14.5, -11.5, 15.5, -10.5, 15.5, -10.5, 16.5, -8.5, 16.5, -8.5, 17.5, 8.5, 17.5, 8.5, 16.5, 10.5, 16.5, 10.5, 15.5, 11.5, 15.5, 11.5, 14.5, 12.5, 14.5, 12.5, 6.5, 11.5, 6.5, 11.5, 2.5, 10.5, 2.5, 10.5, 0.5, 9.5, 0.5, 9.5, -1.5, 8.5, -1.5, 8.5, -3.5, 7.5, -3.5, 7.5, -4.5, 6.5, -4.5, 6.5, -5.5, 5.5, -5.5, 5.5, -6.5, 6.5, -6.5, 6.5, -8.5, 5.5, -8.5, 5.5, -9.5, 6.5, -9.5, 6.5, -11.5, 7.5, -11.5, 7.5, -13.5, 8.5, -13.5, 8.5, -16.5)
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(96, -16)
+texture = ExtResource("4_nilex")
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="."]
+position = Vector2(96, -16)
+polygon = PackedVector2Array(-9, -10, -9, -9, -21, -9, -21, -8, -22, -8, -22, -7, -21, -7, -21, -6, -20, -6, -20, -5, -19, -5, -19, -4, -17, -4, -17, -3, -14, -3, -14, -2, -8, -2, -8, -1, -6, -1, -6, 0, -5, 0, -5, 2, -4, 2, -4, 4, -6, 4, -6, 5, -8, 5, -8, 6, -10, 6, -10, 7, -11, 7, -11, 10, 14, 10, 14, 7, 13, 7, 13, 6, 11, 6, 11, 5, 9, 5, 9, 4, 7, 4, 7, -1, 9, -1, 9, -2, 11, -2, 11, -3, 13, -3, 13, -4, 15, -4, 15, -5, 17, -5, 17, -6, 19, -6, 19, -7, 20, -7, 20, -9, 19, -9, 19, -10)

@@ -1,3 +1,8 @@
-res://Scenes/node_2d.tscn
 res://Scenes/world.tscn
-res://Scripts/player.gd
+res://Scenes/temp.tscn
+res://Scenes/boss.tscn
+res://Scenes/player.tscn
+res://Scenes/ground.tscn
+res://Scenes/displays.tscn
+res://Scenes/obstacles.tscn
+res://Scenes/bg.tscn
