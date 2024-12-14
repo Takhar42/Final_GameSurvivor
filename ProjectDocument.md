@@ -65,7 +65,9 @@ I designed the overall story of the game and cutscenes. Designing each cutscene 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
 ## Game Logic
-
+*Name: Leo Ying*  
+*Email: leoying@ucdavis.edu*  
+*GitHub: [Leo-Ying314](https://github.com/Leo-Ying314)*  
 **Document the game states and game data you managed and the design patterns you used to complete your task.**
 
 # Sub-Roles
@@ -99,5 +101,7 @@ I designed the overall story of the game and cutscenes. Designing each cutscene 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
 
 ## Game Feel and Polish
-
+*Name: Leo Ying*  
+*Email: leoying@ucdavis.edu*  
+*GitHub: [Leo-Ying314](https://github.com/Leo-Ying314)*  
 **Document what you added to and how you tweaked your game to improve its game feel.**
