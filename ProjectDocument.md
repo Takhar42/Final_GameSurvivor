@@ -74,7 +74,7 @@ The boss movement is directly dependent on the player's location as seen in the 
 
 As the main gameplay programmer for this project, my role extended beyond its intended purpose largely due to the incoordination that existed in our team due to a lack of inter-group (technical) experience. I took on synchronizing both the actual logic - in the form of code, GitHub branches, and merging processes - along with the scenes within the project in order to ensure that I had the agency to make the game functional.
 
-For example, the project initially existed as one main scene, with all relevant nodes in the same tree. This made the overall structure quite convoluted and made it difficult to reference certain aspects of the project while writing code. As such, I spent time [separating each component](5ab4a84ba08eb98ecc37b91bfe1e1c23475af23d) into their respective scenes, setting up a much more readable foundation for the rest of our work.
+For example, the project initially existed as one main scene, with all relevant nodes in the same tree. This made the overall structure quite convoluted and made it difficult to reference certain aspects of the project while writing code. As such, I spent time [separating each component](5ab4a84ba08eb98ecc37b91bfe1e1c23475af23d) into their respective scenes, setting up a much more readable foundation for the rest of our work. Additionally, I added all animations for the boss and ghost sprites.
 
 
 ### Code  
