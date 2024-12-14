@@ -93,6 +93,7 @@ Github: hamzahmed1234
 
 I designed the overall story of the game and cutscenes. Designing each cutscene took a bit of time but overall I am very happy with the way they look. I think one of the hardest parts of implementing the cutscenes was making sure that they start at the right times. Getting all the cutscenes to work at the right time took extensive debugging. For the sake of simplicity, I added cutscenes in three core areas. These areas being the beginning of the game, when the boss is first encountered, and once the boss is defeated. I did this by making an ENUM of the three cutscene types I used a timer node to delay between each scene. 
 
+![Sample Cutscene](assets/Cutscenes/victorycs2.png)
 
 ## Press Kit and Trailer
 
