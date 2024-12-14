@@ -1,2 +1,3 @@
 res://Scenes/boss.tscn
+res://Scripts/camera_control.gd
 res://ProjectDocument.md

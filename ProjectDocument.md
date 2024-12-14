@@ -40,7 +40,7 @@ You should replay any **bold text** with your relevant information. Liberally us
 Name: Arian Walia
 Email: aswalia@ucdavis.edu
 Github: inspector2107
-As the producer for our group I made the group discord server which was our main form of communication. I also dedicated certain channels for different aspects of development. In terms of meetings I had a server with polls on what days were the best to meet up/call. I also tried to give the group a timeline on how far we should have come come along in our project based on what day we were on. There were some disputes along the way but through some meetings and calss I managed to settle the creative differenced that our group was having.
+As the producer for our group I made the group discord server which was our main form of communication. I also dedicated certain channels for different aspects of development. In terms of meetings I had a server with polls on what days were the best to meet up/call. I also tried to give the group a timeline on how far we should have come come along in our project based on what day we were on. There were some disputes along the way but through some meetings and calss I managed to settle the creative differenced that our group was having. I also helped other group members with miscellaneous tasks reagrding the code.
 
 ## User Interface and Input
 

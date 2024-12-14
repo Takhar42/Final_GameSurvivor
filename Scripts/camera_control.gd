@@ -18,4 +18,3 @@ func _process(delta):
 		# Normal player tracking
 		position.x = lerp(position.x, target.position.x, follow_speed * delta)
 		position.y = lerp(position.y, target.position.y, follow_speed * delta)
-
