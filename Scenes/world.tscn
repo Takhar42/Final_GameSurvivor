@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://2hu24g51nt80"]
+[gd_scene load_steps=13 format=3 uid="uid://2hu24g51nt80"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_jeina"]
 [ext_resource type="PackedScene" uid="uid://s5ej65stld57" path="res://Scenes/bg.tscn" id="2_rls1m"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://bqj6opmyw6alm" path="res://SunnyLand Music/Adventure pack 1 ogg/exploration.ogg" id="9_sbqmx"]
 [ext_resource type="AudioStream" uid="uid://ja5ma8mpjnf7" path="res://SunnyLand Music/Adventure pack 1 ogg/dark-happy-world.ogg" id="10_wxsn0"]
 [ext_resource type="PackedScene" uid="uid://cvvxsb60faxaa" path="res://Scenes/game_over.tscn" id="11_fj6ox"]
+[ext_resource type="PackedScene" uid="uid://ceek3jrt4dvsh" path="res://Scenes/cutscene.tscn" id="12_xs1qn"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_jeina")
@@ -44,3 +45,5 @@ stream = ExtResource("10_wxsn0")
 
 [node name="GameOver" parent="." instance=ExtResource("11_fj6ox")]
 process_mode = 2
+
+[node name="Cutscene" parent="." instance=ExtResource("12_xs1qn")]

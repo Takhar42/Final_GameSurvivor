@@ -1,3 +1,5 @@
+res://Scenes/cutscene.tscn
+res://Scripts/world.gd
 res://Scenes/world.tscn
 res://Scenes/temp.tscn
 res://Scenes/boss.tscn
@@ -8,4 +10,5 @@ res://Scenes/obstacles.tscn
 res://Scenes/bg.tscn
 res://Scenes/ghost.tscn
 res://Scenes/game_over.tscn
-res://Scripts/world.gd
+res://Scripts/cutscene.gd
+res://Scripts/boss.gd

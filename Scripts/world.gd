@@ -10,6 +10,7 @@ const START_SPEED : float = 10
 const MAX_SPEED : int = 30
 const SPEED_MODIFIER : int = 2500
 const MAX_DIFFICULTY : int = 2
+enum CutsceneType { INTRO, BOSS }  # Add enum for cutscene types
 
 @onready var player = $Player
 @onready var ground = $Ground
@@ -18,6 +19,7 @@ const MAX_DIFFICULTY : int = 2
 @onready var displays = $Displays
 @onready var restart = $GameOver
 @onready var obstacles = $Obstacles
+@onready var cutscene = $Cutscene
 @onready var starting_audio : AudioStreamPlayer2D = $StartingAudio
 @onready var running_audio : AudioStreamPlayer2D = $RunningAudio
 @onready var boss_audio : AudioStreamPlayer2D = $BossAudio
@@ -34,6 +36,8 @@ var obstacles_arr : Array = []
 var last_obs  # To track the last spawned obstacle
 var boss_spawned = false
 var difficulty : int
+var intro_cutscene_shown = false
+
 
 func _ready():
 	screen_size = get_window().size
@@ -46,15 +50,19 @@ func _ready():
 					child.queue_free()
 			obstacle_types.append(template)
 			print("Added obstacle template: ", sprite.name)
+	cutscene.connect("cutscene_finished", _on_cutscene_finished)
 	restart.get_node("Button").pressed.connect(init_game)
-	init_game()
+	if not intro_cutscene_shown:
+		starting_audio.play()
+		cutscene.show_cutscene(5.0, CutsceneType.INTRO)  # Modified to include type
+	else:
+		init_game()
 
 func init_game():
 	get_tree().paused = false 
 	score = 0
 	game_live = false
 	show_score()
-	starting_audio.play()
 	clear_all()
 	
 	player.position.x = camera.position.x - 400
@@ -62,6 +70,11 @@ func init_game():
 	
 	restart.hide()
 	displays.get_node("Start").show()
+	if running_audio.playing:
+		running_audio.stop()
+	if boss_audio.playing:
+		boss_audio.stop()
+	starting_audio.play()
 
 func _process(delta):
 	if game_live and not boss_spawned:
@@ -83,22 +96,38 @@ func _process(delta):
 		generate_obs()
 		cleanup_obstacles()
 
-		if score/15 == 1000:
+		if score/15 == 200:
 			boss_spawned = true
 			if not boss_audio.playing:
 				running_audio.stop()
 				boss_audio.play()
 			clear_all()
-			boss.position.x = camera.position.x + 300
-			boss.position.y = camera.position.y + 60
+			cutscene.show_cutscene(4.0, CutsceneType.BOSS)  # Modified to include type
 			
 		if camera.position.x - ground.position.x > screen_size.x * 1.5:
 			ground.position.x += screen_size.x
 	elif game_live == false:
 		if Input.is_action_just_pressed("start"):
-			displays.get_node("Start").hide()
-			game_live = true
-	
+			if cutscene.visible:
+				cutscene.skip_cutscene() 
+			else:
+				displays.get_node("Start").hide()
+				game_live = true
+
+func _on_cutscene_finished():
+	intro_cutscene_shown = true
+	restart.hide()
+	if score/15 == 200:
+		# Boss setup after cutscene
+		boss.position.x = camera.position.x + 300
+		boss.position.y = camera.position.y + 60
+		# Add delay before boss can act
+		await get_tree().create_timer(1.0).timeout
+		boss.enable_actions()  # Enable boss actions after delay
+	else:
+		# Show start screen after intro cutscene
+		displays.get_node("Start").show()
+
 func generate_obs():
 	# Check if we already have max obstacles
 	var max_obstacles = randi() % 4 + 1  # This gives us 1-4

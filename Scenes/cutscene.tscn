@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceek3jrt4dvsh"]
+
+[ext_resource type="Texture2D" uid="uid://d00qkiaciovy" path="res://assets/Cutscenes/titlescreen.png" id="1_6c60m"]
+[ext_resource type="Script" path="res://Scripts/cutscene.gd" id="1_l3rpx"]
+
+[node name="Cutscene" type="CanvasLayer"]
+script = ExtResource("1_l3rpx")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6c60m")
+stretch_mode = 5
+
+[node name="Timer" type="Timer" parent="Control/TextureRect"]
+one_shot = true
