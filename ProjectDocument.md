@@ -130,4 +130,11 @@ The presskit.mp4 and Survivor Trailer.mp4 are both attatched in the boss branch
 *Name: Leo Ying*  
 *Email: leoying@ucdavis.edu*  
 *GitHub: [Leo-Ying314](https://github.com/Leo-Ying314)*  
-**Document what you added to and how you tweaked your game to improve its game feel.**
+
+Game feel is an integral part of the playing experience in any game. It should be intuitive yet understandable, making the audience feel as though they were in the world themselves. As such, I spent some time making our project feel both good to play and experience.
+
+A large part of our game environment exists as the parallax background, which serves to give the illusion that the player is indeed running through the forest. The positioning of the
+ background was a crucial part of keeping the immersion, which is why I intentionally utilized scaling tools, along with image mirroring, to give the forest a continuous and incredibly unified look.
+ <img width="475" alt="game-img" src="https://github.com/user-attachments/assets/2cb042f7-72d6-4687-bae5-ba086649d8b1" />
+
+Additionally, I fidgeted around with the parameters to ensure that our game didn’t feel too easy or too difficult, which is often an important and even necessary consideration when making any game. One primary example of this is that I made the speed of the game, along with the number of obstacles generated, proportional to the time that the player has spent running in order to make the difficulty go up as the game progresses. This was a critical point to add so that the game didn’t feel stagnant as the player made their way to the inevitable boss fight.
