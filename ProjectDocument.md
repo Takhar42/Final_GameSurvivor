@@ -70,10 +70,10 @@ I spent a lot of time piecing together the building blocks that make the game fe
 
 The parallax background was a lot of fun to create. It’s that classic effect where the layers move at different speeds to give the illusion of depth, and it really brings the environment to life. I also added random obstacles to keep things unpredictable, every time you play, you’re up against something fresh. Then there’s the ground system, which was a bit of a technical challenge but super satisfying to figure out. The ground updates itself dynamically, so as you run, the segments seamlessly shift underneath the player. It keeps the action flowing without ever breaking the immersion, which is exactly what I was going for.
 
-[Obstacles:](https://cainos.itch.io/pixel-art-platformer-village-props?download#google_vignette)
-[Background:](https://edermunizz.itch.io/free-pixel-art-forest)
-[Player:](https://szadiart.itch.io/2d-soulslike-character?download#google_vignette)
-[Boss:](https://chierit.itch.io/boss-demon-slime?download)
+[Obstacles](https://cainos.itch.io/pixel-art-platformer-village-props?download#google_vignette)  
+[Background](https://edermunizz.itch.io/free-pixel-art-forest)  
+[Player](https://szadiart.itch.io/2d-soulslike-character?download#google_vignette)  
+[Boss](https://chierit.itch.io/boss-demon-slime?download)  
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
