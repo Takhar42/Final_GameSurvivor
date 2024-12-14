@@ -107,8 +107,7 @@ Email: aswalia@ucdavis.edu
 Github: inspector2107
 
 In the trailer I tried to showcase our games best point which was the boss fight and in addition I also tried to make the trailer showcase the storyline of our game. For the presskit I tried to make it through presskit() but I ran into some issues with aking the server so I created one through canva and added the trailer along with a coule other important details about the game.
-[Download video](https://raw.githubusercontent.com/inspector2107/Final_GameSurvivor/boss/path/to/presskit.mp4)
-[Download video](https://raw.githubusercontent.com/inspector2107/Final_GameSurvivor/boss/path/to/Survivor Trailer.mp4)
+The presskit.mp4 and Survivor Trailer.mp4 are both attatched in the boss branch
 
 
 ## Game Feel and Polish
