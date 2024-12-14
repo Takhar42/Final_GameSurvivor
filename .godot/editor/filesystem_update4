@@ -1,14 +1,12 @@
-res://Scenes/cutscene.tscn
+res://Scenes/displays.tscn
 res://Scripts/world.gd
 res://Scenes/world.tscn
 res://Scenes/temp.tscn
 res://Scenes/boss.tscn
 res://Scenes/player.tscn
 res://Scenes/ground.tscn
-res://Scenes/displays.tscn
 res://Scenes/obstacles.tscn
 res://Scenes/bg.tscn
 res://Scenes/ghost.tscn
 res://Scenes/game_over.tscn
-res://Scripts/cutscene.gd
-res://Scripts/boss.gd
+res://Scenes/cutscene.tscn
