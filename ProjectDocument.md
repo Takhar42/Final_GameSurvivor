@@ -37,8 +37,10 @@ _Procedural Terrain_ - The game's background consists of procedurally generated 
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
 ## Producer
-
-**Describe the steps you took in your role as producer. Typical items include group scheduling mechanisms, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, dependency/task tracking, Gantt charts, etc.), and repository management methodology.**
+Name: Arian Walia
+Email: aswalia@ucdavis.edu
+Github: inspector2107
+As the producer for our group I made the group discord server which was our main form of communication. I also dedicated certain channels for different aspects of development. In terms of meetings I had a server with polls on what days were the best to meet up/call. I also tried to give the group a timeline on how far we should have come come along in our project based on what day we were on. There were some disputes along the way but through some meetings and calss I managed to settle the creative differenced that our group was having.
 
 ## User Interface and Input
 
@@ -52,10 +54,11 @@ Name: Hamza Ahmed
 Email: harhmed@ucdavis.edu
 Github: hamzahmed1234
 
-We used a lot of the default physics settings like gravity to implement the jump control. Jump is the up arrow control and plays a sound effect when pushed. When the player is not on the floor we also simulate falling behaviors. Horizontal movement is handles by the left and right arrow keys. In the idle state velocity is set to 0. We also have our slide movement which has a separate hitbox corresponding to movement. The slide control will make the hitbox much smaller and the hitbox will go back to normal when the slide is complete. The sword physics also works as the sword can damage the demon within its hitbox. 
+We used a lot of the default physics settings like gravity to implement the jump control. Jump is the up arrow control and plays a sound effect when pushed. When the player is not on the floor we also simulate falling behaviors. Horizontal movement is handles by the left and right arrow keys. In the idle state velocity is set to 0. We also have our slide movement which has a separate hitbox corresponding to movement. The slide control will make the hitbox much smaller and the hitbox will go back to normal when the slide is complete. The sword physics also works as the sword can damage the demon within its hitbox.
 
 The boss movement is directly dependent on the players location as seen in the boss.gd class. If the boss is to class to the player than it will go into the idle state but continue attacking. There is also an attack timer to make sure that the boss does not attack constantly. The boss alternates between walking attacking and stopping. Both the boss and player can damage each other with there weapons.
-
+and under narrative desgin
+I designed the overall story of the game and cutscenes. Designing each cutscene took a bit of time but overall I am very happy with the way they look. I think one of the hardest parts of implementing the cutscenes was making sure that they start at the right times. Getting all the cutscenes to work at the right time took extensive debugging. For the sake of simplicity, I added cutscenes in three core areas. These areas being the beginning of the game, when the boss is first encountered, and once the boss is defeated. I did this by making an ENUM of the three cutscene types I used a timer node to delay between each scene. Sample cutscene:
 
 ## Animation and Visuals
 
@@ -96,7 +99,11 @@ I designed the overall story of the game and cutscenes. Designing each cutscene 
 
 ## Press Kit and Trailer
 
-**Include links to your presskit materials and trailer.**
+Name: Arian Walia
+Email: aswalia@ucdavis.edu
+Github: inspector2107
+
+In the trailer I tried to showcase our games best point which was the boss fight and in addition I also tried to make the trailer showcase the storyline of our game. For the presskit I tried to make it through presskit() but I ran into some issues with aking the server so I created one through canva and added the trailer along with a coule other important details about the game.
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
 

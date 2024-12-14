@@ -1,0 +1,9 @@
+res://Scripts/boss.gd
+res://Scripts/camera_control.gd
+res://Scripts/cleaver.gd
+res://Scripts/cutscene.gd
+res://Scripts/damageable.gd
+res://Scripts/levels.gd
+res://Scripts/objects.gd
+res://Scripts/player.gd
+res://ProjectDocument.md
