@@ -52,11 +52,10 @@ Name: Hamza Ahmed
 Email: harhmed@ucdavis.edu
 Github: hamzahmed1234
 
-We used a lot of the default physics settings like gravity to implement the jump control. Jump is the up arrow control and plays a sound effect when pushed. When the player is not on the floor we also simulate falling behaviors. Horizontal movement is handles by the left and right arrow keys. In the idle state velocity is set to 0. We also have our slide movement which has a separate hitbox corresponding to movement. The slide control will make the hitbox much smaller and the hitbox will go back to normal when the slide is complete. The sword physics also works as the sword can damage the demon within its hitbox.
+We used a lot of the default physics settings like gravity to implement the jump control. Jump is the up arrow control and plays a sound effect when pushed. When the player is not on the floor we also simulate falling behaviors. Horizontal movement is handles by the left and right arrow keys. In the idle state velocity is set to 0. We also have our slide movement which has a separate hitbox corresponding to movement. The slide control will make the hitbox much smaller and the hitbox will go back to normal when the slide is complete. The sword physics also works as the sword can damage the demon within its hitbox. 
 
 The boss movement is directly dependent on the players location as seen in the boss.gd class. If the boss is to class to the player than it will go into the idle state but continue attacking. There is also an attack timer to make sure that the boss does not attack constantly. The boss alternates between walking attacking and stopping. Both the boss and player can damage each other with there weapons.
-and under narrative desgin
-I designed the overall story of the game and cutscenes. Designing each cutscene took a bit of time but overall I am very happy with the way they look. I think one of the hardest parts of implementing the cutscenes was making sure that they start at the right times. Getting all the cutscenes to work at the right time took extensive debugging. For the sake of simplicity, I added cutscenes in three core areas. These areas being the beginning of the game, when the boss is first encountered, and once the boss is defeated. I did this by making an ENUM of the three cutscene types I used a timer node to delay between each scene. Sample cutscene:
+
 
 ## Animation and Visuals
 
