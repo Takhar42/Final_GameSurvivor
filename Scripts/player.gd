@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var MOVE_SPEED: float = 100.0
-@export var JUMP_VELOCITY: float = -300.0
+@export var JUMP_VELOCITY: float = -500.0
 @export var HEALTH: float = 100
 
 @onready var sword = $sword

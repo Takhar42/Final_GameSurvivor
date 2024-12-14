@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk57s6t0ctgs7"]
+
+[ext_resource type="Texture2D" uid="uid://pmkpcqoldjy7" path="res://assets/obstacles/Texture/tree_stump.png" id="1_2wyy8"]
+
+[node name="tree" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(138, -20)
+texture = ExtResource("1_2wyy8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(139, -19)
+polygon = PackedVector2Array(-1.5, -13.5, -1.5, -12.5, -8.5, -12.5, -8.5, -11.5, -10.5, -11.5, -10.5, -10.5, -11.5, -10.5, -11.5, -1.5, -13.5, -1.5, -13.5, -2.5, -16.5, -2.5, -16.5, 0.5, -15.5, 0.5, -15.5, 1.5, -14.5, 1.5, -14.5, 2.5, -13.5, 2.5, -13.5, 4.5, -12.5, 4.5, -12.5, 8.5, -13.5, 8.5, -13.5, 13.5, 14.5, 13.5, 14.5, 3.5, 13.5, 3.5, 13.5, -4.5, 12.5, -4.5, 12.5, -11.5, 11.5, -11.5, 11.5, -12.5, 9.5, -12.5, 9.5, -13.5)

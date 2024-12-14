@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://pgyxpwms1adx"]
+
+[ext_resource type="Texture2D" uid="uid://dbfaheqr8rty7" path="res://assets/obstacles/Texture/anvil.png" id="1_0a4ya"]
+
+[node name="Anvil" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(96, -16)
+texture = ExtResource("1_0a4ya")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(96, -16)
+polygon = PackedVector2Array(-9, -10, -9, -9, -21, -9, -21, -8, -22, -8, -22, -7, -21, -7, -21, -6, -20, -6, -20, -5, -19, -5, -19, -4, -17, -4, -17, -3, -14, -3, -14, -2, -8, -2, -8, -1, -6, -1, -6, 0, -5, 0, -5, 2, -4, 2, -4, 4, -6, 4, -6, 5, -8, 5, -8, 6, -10, 6, -10, 7, -11, 7, -11, 10, 14, 10, 14, 7, 13, 7, 13, 6, 11, 6, 11, 5, 9, 5, 9, 4, 7, 4, 7, -1, 9, -1, 9, -2, 11, -2, 11, -3, 13, -3, 13, -4, 15, -4, 15, -5, 17, -5, 17, -6, 19, -6, 19, -7, 20, -7, 20, -9, 19, -9, 19, -10)

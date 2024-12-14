@@ -419,13 +419,11 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_yqw30")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 16)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_ko6eh")
 
 [node name="SlideCollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(8, 47.875)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_lj6je")

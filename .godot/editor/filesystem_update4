@@ -1,8 +1,10 @@
 res://Scenes/world.tscn
-res://Scripts/world.gd
-res://Scenes/obstacles.tscn
-res://Scenes/cutscene.tscn
+res://Scenes/player.tscn
 res://Scenes/displays.tscn
-res://Scenes/boss.tscn
-res://Scripts/cutscene.gd
-res://Scripts/boss.gd
+res://Scenes/obstacles.tscn
+res://Scripts/world.gd
+res://Scenes/rock.tscn
+res://Scenes/tree.tscn
+res://Scenes/sack.tscn
+res://Scenes/anvil.tscn
+res://Scripts/player.gd
