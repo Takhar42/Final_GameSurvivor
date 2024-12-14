@@ -57,7 +57,6 @@ func move_horizontally(delta):
 	# Move towards the player's x-position
 	var distance = player.global_position.x - global_position.x + 100
 	var direction = sign(distance)
-	print(distance)
 	if (distance < 0 and distance > -150) or (distance > 0 and distance < 360):
 		sprite.play("idle")
 		return

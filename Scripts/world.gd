@@ -3,10 +3,13 @@ extends Node
 
 
 @export var boss_scene = preload("res://Scenes/boss.tscn")
+@export var ghost_scene = preload("res://Scenes/ghost.tscn")
 
 const CAM_START_POS := Vector2i(576, 324)
 const START_SPEED : float = 10
-const MAX_SPEED : int = 100
+const MAX_SPEED : int = 30
+const SPEED_MODIFIER : int = 2500
+const MAX_DIFFICULTY : int = 2
 
 @onready var player = $Player
 @onready var ground = $Ground
@@ -26,9 +29,11 @@ var speed : float
 var screen_size : Vector2i
 var game_live : bool
 var obstacle_types := []
+var ghost_heights := [350]
 var obstacles_arr : Array = []
 var last_obs  # To track the last spawned obstacle
 var boss_spawned = false
+var difficulty : int
 
 func _ready():
 	screen_size = get_window().size
@@ -61,9 +66,14 @@ func init_game():
 func _process(delta):
 	if game_live and not boss_spawned:
 		running_audio.play()
-		speed = START_SPEED
+		speed = START_SPEED + score / SPEED_MODIFIER
+		if speed >= MAX_SPEED:
+			speed = MAX_SPEED
+		adjust_difficulty()
+		
 		player.position.x += speed
 		camera.position.x += speed
+	
 		score += speed
 		show_score()
 		
@@ -71,7 +81,7 @@ func _process(delta):
 		generate_obs()
 		cleanup_obstacles()
 
-		if score/15 == 200:
+		if score/15 == 1000:
 			boss_spawned = true
 			boss_audio.play()
 			clear_all()
@@ -99,6 +109,13 @@ func generate_obs():
 		
 		last_obs = obs
 		add_obs(obs, obs_x, obs_y)
+		if difficulty == MAX_DIFFICULTY:
+			if (randi() % 2) == 0:
+				#generate bird obstacles
+				obs = ghost_scene.instantiate()
+				obs_x = screen_size.x + score + 100
+				obs_y = ghost_heights[randi() % ghost_heights.size()]
+				add_obs(obs, obs_x, obs_y)
 
 func add_obs(obs, x, y):
 	obs.position = Vector2i(x, y)
@@ -108,19 +125,19 @@ func add_obs(obs, x, y):
 	obs.collision_mask = 0b001   # Binary 001 = layer 1 (player)
 	
 	if obs.has_signal("area_entered"):
-		print("Connecting area collision signal")
+		#print("Connecting area collision signal")
 		obs.area_entered.connect(_on_obstacle_collision)
 	if obs.has_signal("body_entered"):
-		print("Connecting body collision signal")
+		#print("Connecting body collision signal")
 		obs.body_entered.connect(_on_obstacle_collision)
 	
 	add_child(obs)
 	obstacles_arr.append(obs)
 
 func _on_obstacle_collision(area):
-	print("Collision detected!")
-	print("Collided with: ", area.name)
-	print("Player position: ", player.position)
+	#print("Collision detected!")
+	#print("Collided with: ", area.name)
+	#print("Player position: ", player.position)
 	game_over()
 
 func cleanup_obstacles():
@@ -146,6 +163,11 @@ func game_over():
 	boss_spawned = false
 	get_tree().paused = true
 	restart.show()
+
+func adjust_difficulty():
+	difficulty = score / SPEED_MODIFIER
+	if difficulty > MAX_DIFFICULTY:
+		difficulty = MAX_DIFFICULTY
 
 func show_score():
 	displays.get_node("Score").text = "Score: " + str(score/15)

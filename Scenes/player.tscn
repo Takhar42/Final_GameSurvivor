@@ -415,6 +415,7 @@ autoplay = "idle"
 [node name="sword" type="Area2D" parent="."]
 
 [node name="SwordCollisionShape2D" type="CollisionShape2D" parent="sword"]
+visible = false
 position = Vector2(40, 16)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_yqw30")
