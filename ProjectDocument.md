@@ -58,8 +58,7 @@ Github: hamzahmed1234
 
 We used a lot of the default physics settings like gravity to implement the jump control. Jump is the up arrow control and plays a sound effect when pushed. When the player is not on the floor we also simulate falling behaviors. Horizontal movement is handled by the left and right arrow keys. In the idle state, velocity is set to 0. We also have our slide movement which has a separate hitbox corresponding to movement. The slide control will make the hitbox much smaller and the hitbox will go back to normal when the slide is complete. The slide bind is the down arrow key. The sword can damage the demon within its hitbox. The sword bind is the s key.
 
-The boss movement is directly dependent on the player's location as seen in the boss.gd class. If the boss is to closs to the player than it will go into the idle state but can continue attacking. There is also an attack timer to make sure that the boss does not attack constantly. The boss alternates between walking, attacking, and stopping. Both the boss and the player can damage each other with their weapons.
-
+The boss movement is directly dependent on the player's location as seen in the boss.gd class. If the boss is to closs to the player than it will go into the idle state but can continue attacking. There is also an attack timer to make sure that the boss does not attack constantly. The boss alternates between walking, attacking, and stopping. 
 
 ## Animation and Visuals
 
