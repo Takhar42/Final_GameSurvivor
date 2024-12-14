@@ -1,5 +1,5 @@
+# world.gd
 extends Node
-
 
 @export var boss_scene = preload("res://Scenes/boss.tscn")
 
@@ -7,6 +7,7 @@ const DINO_START_POS := Vector2i(150, 485)
 const CAM_START_POS := Vector2i(576, 324)
 const START_SPEED : float = 10
 const MAX_SPEED : int = 100
+enum CutsceneType { INTRO, BOSS }  # Add enum for cutscene types
 
 @onready var player = $Player
 @onready var ground = $Ground
@@ -14,6 +15,7 @@ const MAX_SPEED : int = 100
 @onready var boss = $Boss
 @onready var displays = $Displays
 @onready var obstacles = $Obstacles
+@onready var cutscene = $Cutscene
 
 var score : int
 var max_score : int
@@ -25,6 +27,7 @@ var obstacle_types := []
 var obstacles_arr : Array = []
 var last_obs  # To track the last spawned obstacle
 var boss_spawned = false
+var intro_cutscene_shown = false
 
 func _ready():
 	screen_size = get_window().size
@@ -37,8 +40,6 @@ func _ready():
 	ground.collision_mask = 0b001      # Only collide with player
 	
 	# Get individual obstacle templates
-	
-	# Create separate Area2D templates for each sprite
 	for sprite in obstacles.get_children():
 		if sprite is Sprite2D:
 			var template = obstacles.duplicate()  # Duplicate the Area2D
@@ -48,18 +49,32 @@ func _ready():
 					child.queue_free()
 			obstacle_types.append(template)
 			print("Added obstacle template: ", sprite.name)
-	init_game()
+			
+	# Setup cutscene
+	cutscene.connect("cutscene_finished", _on_cutscene_finished)
+	
+	# Start with cutscene
+	displays.get_node("Start").hide()  # Hide start display initially
+	if not intro_cutscene_shown:
+		cutscene.show_cutscene(5.0, CutsceneType.INTRO)  # Modified to include type
+	else:
+		init_game()
 
 func init_game():
 	score = 0
 	game_live = false
-	
-	# Clear any existing obstacles
 	clear_all()
-	
 	displays.get_node("Start").show()
 
 func _process(delta):
+	if not game_live:
+		if Input.is_action_just_pressed("ui_accept"):
+			if cutscene.visible:
+				cutscene.skip_cutscene()  # Skip cutscene if it's playing
+			else:
+				displays.get_node("Start").hide()
+				game_live = true
+	
 	if game_live:
 		speed = START_SPEED
 		player.position.x += speed
@@ -67,30 +82,35 @@ func _process(delta):
 		score += speed
 		show_score()
 		
-		# Generate and manage obstacles
 		generate_obs()
 		cleanup_obstacles()
 
 		if score/15 == 200:
 			game_live = false
 			clear_all()
-			boss.position.x = camera.position.x + 300
-			boss.position.y = camera.position.y + 60
+			cutscene.show_cutscene(4.0, CutsceneType.BOSS)  # Modified to include type
 			
 		if camera.position.x - ground.position.x > screen_size.x * 1.5:
 			ground.position.x += screen_size.x
+
+func _on_cutscene_finished():
+	intro_cutscene_shown = true
+	if score/15 == 200:
+		# Boss setup after cutscene
+		boss.position.x = camera.position.x + 300
+		boss.position.y = camera.position.y + 60
+		# Add delay before boss can act
+		await get_tree().create_timer(1.0).timeout
+		boss.enable_actions()  # Enable boss actions after delay
 	else:
-		if Input.is_action_just_pressed("ui_accept"):
-			displays.get_node("Start").hide()
-			game_live = true
-	
+		# Show start screen after intro cutscene
+		displays.get_node("Start").show()
+
 func generate_obs():
-	# Check if we already have max obstacles
-	var max_obstacles = randi() % 4 + 1  # This gives us 1-4
+	var max_obstacles = randi() % 4 + 1
 	if obstacles_arr.size() >= max_obstacles:
 		return
 
-	# Spawn condition - either no obstacles or last one is far enough behind
 	if obstacles_arr.is_empty() or (last_obs != null and last_obs.position.x < camera.position.x + randi_range(400, 600)):
 		var obs = obstacle_types[0].duplicate()
 		var obs_y : int = 600
@@ -101,10 +121,8 @@ func generate_obs():
 
 func add_obs(obs, x, y):
 	obs.position = Vector2i(x, y)
-	
-	# Set collision layer (layer 3) and mask (layer 1) for obstacles
-	obs.collision_layer = 0b100  # Binary 100 = layer 3
-	obs.collision_mask = 0b001   # Binary 001 = layer 1 (player)
+	obs.collision_layer = 0b100
+	obs.collision_mask = 0b001
 	
 	if obs.has_signal("area_entered"):
 		print("Connecting area collision signal")
@@ -142,10 +160,7 @@ func remove_obs(obs):
 func game_over():
 	print("Game Over!")
 	game_live = false
-	#displays.get_node("End").show()
 	init_game()
 
 func show_score():
 	displays.get_node("Score").text = "Score: " + str(score/15)
-#func show_high_score():
-	#displays.get_node("High Score").text = "High Score: " + str(score/15)

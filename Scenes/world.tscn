@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://2hu24g51nt80"]
+[gd_scene load_steps=10 format=3 uid="uid://2hu24g51nt80"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_jeina"]
 [ext_resource type="PackedScene" uid="uid://s5ej65stld57" path="res://Scenes/bg.tscn" id="2_rls1m"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://3pgt3p6jh6rh" path="res://Scenes/boss.tscn" id="5_fww62"]
 [ext_resource type="PackedScene" uid="uid://4xsh4h3f6eij" path="res://Scenes/ground.tscn" id="6_jhoxo"]
 [ext_resource type="PackedScene" uid="uid://dplev6niebxst" path="res://Scenes/player.tscn" id="7_gyelo"]
+[ext_resource type="PackedScene" uid="uid://rkl3i3tqvvf8" path="res://Scenes/cutscene.tscn" id="8_fgjwn"]
+[ext_resource type="Script" path="res://Scripts/cutscene.gd" id="9_mev3a"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_jeina")
@@ -28,3 +30,6 @@ position = Vector2(0, 584)
 
 [node name="Player" parent="." instance=ExtResource("7_gyelo")]
 position = Vector2(104, 544)
+
+[node name="Cutscene" parent="." instance=ExtResource("8_fgjwn")]
+script = ExtResource("9_mev3a")
