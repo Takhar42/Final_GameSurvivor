@@ -7,7 +7,5 @@ res://Scenes/displays.tscn
 res://Scenes/obstacles.tscn
 res://Scenes/bg.tscn
 res://Scenes/ghost.tscn
-res://Scripts/world.gd
 res://Scenes/game_over.tscn
-res://Scripts/player.gd
-res://Scripts/boss.gd
+res://Scripts/world.gd

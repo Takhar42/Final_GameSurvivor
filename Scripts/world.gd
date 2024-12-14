@@ -65,7 +65,9 @@ func init_game():
 
 func _process(delta):
 	if game_live and not boss_spawned:
-		running_audio.play()
+		if not running_audio.playing:
+			starting_audio.stop()
+			running_audio.play()
 		speed = START_SPEED + score / SPEED_MODIFIER
 		if speed >= MAX_SPEED:
 			speed = MAX_SPEED
@@ -83,7 +85,9 @@ func _process(delta):
 
 		if score/15 == 1000:
 			boss_spawned = true
-			boss_audio.play()
+			if not boss_audio.playing:
+				running_audio.stop()
+				boss_audio.play()
 			clear_all()
 			boss.position.x = camera.position.x + 300
 			boss.position.y = camera.position.y + 60
