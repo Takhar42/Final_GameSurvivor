@@ -7,7 +7,7 @@
 ## Project Resources
 
 [Web-playable version of your game.](https://itch.io/)  
-[Trailor](https://drive.google.com/file/u/1/d/1nz8gQj3QAfBOyUSO9GFB3DCOwhOwAQbL/view?usp=share_link)  
+[Trailor](https://github.com/Takhar42/Final_GameSurvivor/blob/cfcfaa74f353de5201c4d64365216204c08ccd94/Survivor%20Trailer.mp4)  
 [Press Kit](https://dopresskit.com/)  
 [Proposal](https://docs.google.com/document/d/18Ft38fHuR5aqoiyBDuxAolDGG-6qYme-iuhNBJW0NP8/edit?usp=sharing)  
 
