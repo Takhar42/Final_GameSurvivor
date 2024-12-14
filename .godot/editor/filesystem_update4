@@ -1,9 +1,3 @@
 res://Scenes/world.tscn
-res://Scripts/boss.gd
-res://Scripts/sword.gd
 res://Scenes/player.tscn
 res://Scenes/boss.tscn
-res://Scripts/player.gd
-res://Scripts/cleaver.gd
-res://Scripts/cutscene.gd
-res://Scripts/world.gd
