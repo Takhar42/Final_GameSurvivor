@@ -2,8 +2,7 @@
 
 ## Summary
 
-**A paragraph-length pitch for your game.**
-
+A monster has ravaged an entire village and has returned to its lair. The main character of the game is a skilled warrior in the village and is now the only survivor. Overcome with hatred and anger, the warrior embarks on a journey to defeat the monster. However the monster's lair is far out into the woods with many obstacles and treacherous terrain that makes reaching the lair very tough. The game is our unique twist on the classic side scroller runner games like the chrome dinosaur game. However instead of making an infinite scroller we want to make it finite. Once you reach a certain point you will encounter the demon
 ## Project Resources
 
 [Web-playable version of your game.](https://itch.io/)  
