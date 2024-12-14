@@ -1,3 +1,4 @@
+class_name Cleaver
 extends Area2D
 
 @export var damage : int = 100

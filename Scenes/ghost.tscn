@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://81nvqbi2e3sn"]
+
+[ext_resource type="Texture2D" uid="uid://umcusiwrkvju" path="res://Sunny Land Collection Files/Assets/Characters/Enemies and NPC/enemy-ghost/Sprites/Particles/transparent-particles-export1.png" id="1_int68"]
+[ext_resource type="Texture2D" uid="uid://coihgntxy5bkt" path="res://Sunny Land Collection Files/Assets/Characters/Enemies and NPC/enemy-ghost/Sprites/Particles/transparent-particles-export2.png" id="2_2ttrh"]
+[ext_resource type="Texture2D" uid="uid://blq1156vm4phn" path="res://Sunny Land Collection Files/Assets/Characters/Enemies and NPC/enemy-ghost/Sprites/Particles/transparent-particles-export3.png" id="3_ve61c"]
+[ext_resource type="Texture2D" uid="uid://gt3jrwdpqc4" path="res://Sunny Land Collection Files/Assets/Characters/Enemies and NPC/enemy-ghost/Sprites/Particles/transparent-particles-export4.png" id="4_vmq3u"]
+[ext_resource type="Texture2D" uid="uid://bl0plfelwnktl" path="res://Sunny Land Collection Files/Assets/Characters/Enemies and NPC/enemy-ghost/Sprites/Particles/transparent-particles-export5.png" id="5_nlgdt"]
+[ext_resource type="Texture2D" uid="uid://csgwbm615pqqt" path="res://Sunny Land Collection Files/Assets/Characters/Enemies and NPC/enemy-ghost/Sprites/Particles/transparent-particles-export6.png" id="6_gdsfi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u67kk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_int68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2ttrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ve61c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vmq3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nlgdt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gdsfi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d8hcu"]
+radius = 16.0
+
+[node name="Ghost" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_u67kk")
+autoplay = "default"
+frame_progress = 0.424461
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d8hcu")

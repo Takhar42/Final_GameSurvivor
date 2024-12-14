@@ -1,3 +1,4 @@
+class_name World
 extends Node
 
 
@@ -53,6 +54,7 @@ func _ready():
 func init_game():
 	score = 0
 	game_live = false
+	show_score()
 	
 	# Clear any existing obstacles
 	clear_all()
@@ -60,7 +62,7 @@ func init_game():
 	displays.get_node("Start").show()
 
 func _process(delta):
-	if game_live:
+	if game_live and not boss_spawned:
 		speed = START_SPEED
 		player.position.x += speed
 		camera.position.x += speed
@@ -72,15 +74,15 @@ func _process(delta):
 		cleanup_obstacles()
 
 		if score/15 == 200:
-			game_live = false
+			boss_spawned = true
 			clear_all()
 			boss.position.x = camera.position.x + 300
 			boss.position.y = camera.position.y + 60
 			
 		if camera.position.x - ground.position.x > screen_size.x * 1.5:
 			ground.position.x += screen_size.x
-	else:
-		if Input.is_action_just_pressed("ui_accept"):
+	elif game_live == false:
+		if Input.is_action_just_pressed("start"):
 			displays.get_node("Start").hide()
 			game_live = true
 	
@@ -142,6 +144,7 @@ func remove_obs(obs):
 func game_over():
 	print("Game Over!")
 	game_live = false
+	boss_spawned = false
 	#displays.get_node("End").show()
 	init_game()
 

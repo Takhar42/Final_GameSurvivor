@@ -6,3 +6,11 @@ res://Scenes/ground.tscn
 res://Scenes/displays.tscn
 res://Scenes/obstacles.tscn
 res://Scenes/bg.tscn
+res://Scenes/ghost.tscn
+res://Scripts/world.gd
+res://Scripts/player.gd
+res://Scripts/objects.gd
+res://Scripts/levels.gd
+res://Scripts/cleaver.gd
+res://Scripts/camera_control.gd
+res://Scripts/boss.gd

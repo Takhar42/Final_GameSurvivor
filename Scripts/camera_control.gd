@@ -1,3 +1,4 @@
+class_name CameraController
 extends Camera2D
 
 @export var follow_speed = 5.0

@@ -1,3 +1,4 @@
+class_name Boss
 extends CharacterBody2D
 
 enum BossState { IDLE, WALK, ATTACK, STOP, DAMAGED, DEATH }
@@ -37,7 +38,7 @@ func _ready():
 func _physics_process(delta):
 	match state:
 		BossState.IDLE:
-			pass  # Do nothing
+			pass
 		BossState.WALK:
 			move_horizontally(delta)
 		BossState.ATTACK:
@@ -51,7 +52,7 @@ func _physics_process(delta):
 
 func move_horizontally(delta):
 	if not player:
-		return  # Ensure the player node is valid
+		return
 
 	# Move towards the player's x-position
 	var distance = player.global_position.x - global_position.x + 100
@@ -62,10 +63,10 @@ func move_horizontally(delta):
 		return
 	velocity.x = direction * move_speed
 	if direction > 0:
-		sprite.flip_h = true  # Face right
+		sprite.flip_h = true
 		cleaver.scale.x = -1;
 	else:
-		sprite.flip_h = false   # Face left
+		sprite.flip_h = false
 		cleaver.scale.x = 1
 	move_and_slide()
 
@@ -77,13 +78,12 @@ func perform_attack():
 	sprite.play("attack")
 	attack_timer.start()
 
-	# Check for player in range and apply damage
 	if player and position.distance_to(player.position) <= attack_range:
-		player.take_damage(100)  # Assuming the player has a `take_damage` function
+		player.take_damage(100)
 	state = BossState.IDLE
 
 func stop_movement():
-	velocity = Vector2(0, 0)  # Stop horizontal movement
+	velocity = Vector2(0, 0)
 	sprite.play("idle")
 
 func _on_action_timeout():
