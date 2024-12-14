@@ -73,7 +73,23 @@ I designed the overall story of the game and cutscenes. Designing each cutscene 
 *Name: Leo Ying*  
 *Email: leoying@ucdavis.edu*  
 *GitHub: [Leo-Ying314](https://github.com/Leo-Ying314)*  
-**Document the game states and game data you managed and the design patterns you used to complete your task.**
+
+As the main gameplay programmer for this project, my role extended beyond its intended purpose largely due to the incoordination that existed in our team due to a lack of inter-group (technical) experience. I took on synchronizing both the actual logic - in the form of code, GitHub branches, and merging processes - along with the scenes within the project in order to ensure that I had the agency to make the game functional.
+
+For example, the project initially existed as one main scene, with all relevant nodes in the same tree. This made the overall structure quite convoluted and made it difficult to reference certain aspects of the project while writing code. As such, I spent time [separating each component](5ab4a84ba08eb98ecc37b91bfe1e1c23475af23d) into their respective scenes, setting up a much more readable foundation for the rest of our work.
+
+
+### Code  
+Most of the logic exists within three files: 
+1. [world.gd](https://github.com/Takhar42/Final_GameSurvivor/blob/632d79f8eacc10005c37d3712beef4ec44fe9741/Scripts/world.gd)  
+2. [player.gd](https://github.com/Takhar42/Final_GameSurvivor/blob/3fdfc5d0b117b410e3372ac5ec9689ad1d8f80a5/Scripts/player.gd)  
+3. [boss.gd](https://github.com/Takhar42/Final_GameSurvivor/blob/2e6f65689f948d2bbdc783174d061095ff48714d/Scripts/boss.gd)  
+
+Due to the relatively simple scope of our game, we did not follow any specific game pattern to define our code. We really only had 3-4 game states (namely: main menu, running, cutscenes, and boss-fight) and as such, had the leniency to be more flexible in terms of our coding style. 
+
+
+The first script handles most of the state logic, where much of the assets needed for the game to function are referenced and defined. The second and third scripts deal with player controls/movement and boss mechanics respectively, where input mapping along with scheduling moves are utilized to create a sense of interaction between the two characters.
+
 
 # Sub-Roles
 
