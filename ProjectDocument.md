@@ -44,8 +44,11 @@ As the producer for our group I made the group discord server which was our main
 
 ## User Interface and Input
 
-**Describe your user interface and how it relates to gameplay. This can be done via the template.**
-**Describe the default input configuration.**
+Name: Arjun Takhar 
+Email: atakhar@ucdavis.edu
+GitHub: Takhar42
+
+For the user interface and input I was in charge of making sure that the player movement and actions were smooth. The movements and keys were mapped so there is easy use to the user. The input mapping was very simple and worked really well with the concept of the game.
 
 **Add an entry for each platform or input style your project supports.**
 
@@ -104,8 +107,9 @@ Email: aswalia@ucdavis.edu
 Github: inspector2107
 
 In the trailer I tried to showcase our games best point which was the boss fight and in addition I also tried to make the trailer showcase the storyline of our game. For the presskit I tried to make it through presskit() but I ran into some issues with aking the server so I created one through canva and added the trailer along with a coule other important details about the game.
+[Download video](https://raw.githubusercontent.com/inspector2107/Final_GameSurvivor/boss/path/to/presskit.mp4)
+[Download video](https://raw.githubusercontent.com/inspector2107/Final_GameSurvivor/boss/path/to/Survivor Trailer.mp4)
 
-**Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
 
 ## Game Feel and Polish
 *Name: Leo Ying*  
