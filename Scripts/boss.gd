@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 enum BossState { IDLE, WALK, ATTACK, STOP, DAMAGED, DEATH }
 var state = BossState.IDLE
-@export var health = 200
+@export var health = 1000
 @export var move_speed = 100.0
 @export var attack_range = 200.0
 @export var attack_cooldown = 2.0
