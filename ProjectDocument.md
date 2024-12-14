@@ -6,14 +6,14 @@ A demon has ravaged an entire village and has returned to its lair. The main cha
 
 ## Project Resources
 
-[Web-playable version of your game.](https://itch.io/)  
+[Web-playable version of your game.](https://jgill220.itch.io/the-survivor)  
 [Trailor](https://drive.google.com/file/d/1nz8gQj3QAfBOyUSO9GFB3DCOwhOwAQbL/view?usp=share_link)  
 [Press Kit](https://drive.google.com/file/d/1A7qypg9B-_LtcjDua6I-l1hZz8J_QjME/view?usp=share_link)  
 [Proposal](https://docs.google.com/document/d/18Ft38fHuR5aqoiyBDuxAolDGG-6qYme-iuhNBJW0NP8/edit?usp=sharing)  
 
 ## Gameplay Explanation
 
-This game is sort of like the chrome dino scroller game except its finite. Once reach a certain point you will encounter the demon. Your movement controls are jump, run, slide, and attack. You must use these controls to avoid the obstacles on your way to the demon. You must use your sword to defeat the demon.
+This game is sort of like the chrome-dino scroller game except it is finite. Once reach a certain point you will encounter the demon. Your movement controls are jump, run, slide, and attack. You must use these controls to avoid the obstacles on your way to the demon. You must use your sword to defeat the demon.
 
 
 # External Code, Ideas, and Structure
@@ -39,6 +39,7 @@ You should replay any **bold text** with your relevant information. Liberally us
 Name: Arian Walia
 Email: aswalia@ucdavis.edu
 Github: inspector2107
+
 As the producer for our group I made the group discord server which was our main form of communication. I also dedicated certain channels for different aspects of development. In terms of meetings I had a server with polls on what days were the best to meet up/call. I also tried to give the group a timeline on how far we should have come come along in our project based on what day we were on. There were some disputes along the way but through some meetings and calss I managed to settle the creative differenced that our group was having. I also helped other group members with miscellaneous tasks reagrding the code.
 
 ## User Interface and Input
@@ -61,8 +62,18 @@ We used a lot of the default physics settings like gravity to implement the jump
 The boss movement is directly dependent on the player's location as seen in the boss.gd class. If the boss is to closs to the player than it will go into the idle state but can continue attacking. There is also an attack timer to make sure that the boss does not attack constantly. The boss alternates between walking, attacking, and stopping. 
 
 ## Animation and Visuals
+Name: Jason Gill
+Email: jasgil@ucdavis.edu
+Github: jgill-101
 
-**List your assets, including their sources and licenses.**
+I spent a lot of time piecing together the building blocks that make the game feel alive. First up were the sprites, I sourced a variety of them to give the world a cohesive vibe while keeping it visually engaging. Whether it’s the main character, enemies, or the scenery, everything has a distinct style that draws you in. Once the sprites were locked in, I got to work on the hitboxes, which is where things got tricky. It’s all about making sure that the game feels fair: precise enough to challenge the player, but not so unforgiving that it’s frustrating.
+
+The parallax background was a lot of fun to create. It’s that classic effect where the layers move at different speeds to give the illusion of depth, and it really brings the environment to life. I also added random obstacles to keep things unpredictable, every time you play, you’re up against something fresh. Then there’s the ground system, which was a bit of a technical challenge but super satisfying to figure out. The ground updates itself dynamically, so as you run, the segments seamlessly shift underneath the player. It keeps the action flowing without ever breaking the immersion, which is exactly what I was going for.
+
+[Obstacles:](https://cainos.itch.io/pixel-art-platformer-village-props?download#google_vignette)
+[Background:](https://edermunizz.itch.io/free-pixel-art-forest)
+[Player:](https://szadiart.itch.io/2d-soulslike-character?download#google_vignette)
+[Boss:](https://chierit.itch.io/boss-demon-slime?download)
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
@@ -99,6 +110,9 @@ The first script handles most of the state logic, where much of the assets neede
 **Document the sound style.**
 
 ## Gameplay Testing
+Name: Arjun Takhar 
+Email: atakhar@ucdavis.edu
+GitHub: Takhar42
 
 **Add a link to the full results of your gameplay tests.**
 
