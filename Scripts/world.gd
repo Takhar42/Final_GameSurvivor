@@ -1,4 +1,3 @@
-# world.gd
 extends Node
 
 @export var boss_scene = preload("res://Scenes/boss.tscn")
@@ -12,7 +11,7 @@ const CAM_START_POS := Vector2i(576, 324)
 const GND_START_POS := Vector2i(0, 585)
 const START_SPEED : float = 10
 const MAX_SPEED : int = 100
-enum CutsceneType { INTRO, BOSS }  # Add enum for cutscene types
+enum CutsceneType { INTRO, BOSS, VICTORY }  # Added VICTORY type
 
 @onready var player = $Player
 @onready var ground = $Ground
@@ -34,13 +33,11 @@ var boss_spawned = false
 var intro_cutscene_shown = false
 
 func _ready():
-	
 	screen_size = get_window().size
 	ground_height = $Ground.get_node("Sprite2D").texture.get_height()
-
 	# Setup cutscene
 	cutscene.connect("cutscene_finished", _on_cutscene_finished)
-	
+
 	# Start with cutscene
 	displays.get_node("Start").hide()  # Hide start display initially
 	if not intro_cutscene_shown:
@@ -52,7 +49,7 @@ func init_game():
 	score = 0
 	game_live = false
 	get_tree().paused = false
-	
+
 	$Player.position = PLAYER_START_POS
 	$Camera2D.position = CAM_START_POS
 	$Ground.position = GND_START_POS
@@ -66,32 +63,35 @@ func _process(delta):
 			else:
 				displays.get_node("Start").hide()
 				game_live = true
-	
+
 	if game_live:
 		speed = START_SPEED
 		player.position.x += speed
 		camera.position.x += speed
 		score += speed
 		show_score()
-		
-		generate_obs()
 
-		if score/15 == 500:
+		generate_obs()
+		if score / 15 == 500:
 			game_live = false
 			cutscene.show_cutscene(4.0, CutsceneType.BOSS)  # Modified to include type
-			
+
 		if camera.position.x - ground.position.x > screen_size.x * 1.5:
 			ground.position.x += screen_size.x
 
 func _on_cutscene_finished():
 	intro_cutscene_shown = true
-	if score/15 == 500:
-		# Boss setup after cutscene
-		boss.position.x = camera.position.x + 300
-		boss.position.y = camera.position.y + 60
-		# Add delay before boss can act
-		await get_tree().create_timer(1.0).timeout
-		boss.enable_actions()  # Enable boss actions after delay
+	if score / 15 == 500:
+		if is_instance_valid(boss):  # Check if boss still exists
+			# Boss setup after cutscene
+			boss.position.x = camera.position.x + 300
+			boss.position.y = camera.position.y + 60
+			# Add delay before boss can act
+			await get_tree().create_timer(1.0).timeout
+			boss.enable_actions()  # Enable boss actions after delay
+	elif cutscene.current_type == CutsceneType.VICTORY:
+		# Handle victory cutscene end
+		game_over()
 	else:
 		# Show start screen after intro cutscene
 		displays.get_node("Start").show()
@@ -111,20 +111,18 @@ func generate_obs():
 			add_obs(obs, obs_x, 585)
 
 func add_obs(obs, x, y):
-	obs.position = Vector2i(x,y)
+	obs.position = Vector2i(x, y)
 	obs.body_entered.connect(hit_obs)
 	add_child(obs)
 	obstacles.append(obs)
-	
+
 func hit_obs(body):
 	if body.name == "Player":
 		game_over()
 
-
 func remove_obs(obs):
 	obs.queue_free()
 	obstacles.erase(obs)
-
 
 func game_over():
 	print("Game Over!")
@@ -133,6 +131,11 @@ func game_over():
 	init_game()
 
 func show_score():
-	displays.get_node("Score").text = "Score: " + str(score/15)
+	displays.get_node("Score").text = "Score: " + str(score / 15)
+
+func show_victory_cutscene():
+	game_live = false
+	cutscene.show_cutscene(7.5, CutsceneType.VICTORY)
+
 #func show_high_score():
-	#displays.get_node("High Score").text = "High Score: " + str(score/15)
+	#displays.get_node("High Score").text = "High Score: " + str(score / 15)

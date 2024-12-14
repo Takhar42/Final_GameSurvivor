@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://3pgt3p6jh6rh"]
+[gd_scene load_steps=67 format=3 uid="uid://3pgt3p6jh6rh"]
 
 [ext_resource type="Script" path="res://Scripts/boss.gd" id="1_aegsf"]
 [ext_resource type="Texture2D" uid="uid://ypxbumoy6m7m" path="res://assets/boss/03_demon_cleave/demon_cleave_1.png" id="1_g6ygu"]
@@ -62,6 +62,7 @@
 [ext_resource type="Texture2D" uid="uid://bwlxupuqoy2wl" path="res://assets/boss/02_demon_walk/demon_walk_11.png" id="59_g77bq"]
 [ext_resource type="Texture2D" uid="uid://v0vkybqyutbv" path="res://assets/boss/02_demon_walk/demon_walk_12.png" id="60_4mf05"]
 [ext_resource type="Script" path="res://Scripts/cleaver.gd" id="62_liaj4"]
+[ext_resource type="Script" path="res://Scripts/damageable.gd" id="63_00gdk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ov4fo"]
 animations = [{
@@ -370,5 +371,8 @@ script = ExtResource("62_liaj4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cleaver"]
 position = Vector2(-252.5, 149)
 shape = SubResource("RectangleShape2D_5hs43")
+
+[node name="Damageable" type="Node" parent="."]
+script = ExtResource("63_00gdk")
 
 [connection signal="body_entered" from="cleaver" to="cleaver" method="_on_body_entered"]

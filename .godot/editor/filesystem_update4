@@ -1,10 +1,9 @@
 res://Scenes/world.tscn
+res://Scripts/boss.gd
+res://Scripts/sword.gd
 res://Scenes/player.tscn
-res://Scenes/displays.tscn
-res://Scenes/obstacles.tscn
-res://Scripts/world.gd
-res://Scenes/rock.tscn
-res://Scenes/tree.tscn
-res://Scenes/sack.tscn
-res://Scenes/anvil.tscn
+res://Scenes/boss.tscn
 res://Scripts/player.gd
+res://Scripts/cleaver.gd
+res://Scripts/cutscene.gd
+res://Scripts/world.gd

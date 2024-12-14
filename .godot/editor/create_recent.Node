@@ -1,3 +1,4 @@
+Node
 Area2D
 Control
 Timer
@@ -9,6 +10,5 @@ ParallaxBackground
 Parallax2D
 StaticBody2D
 CharacterBody2D
-Node
 CollisionShape2D
 AnimatedSprite2D

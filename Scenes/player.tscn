@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://dplev6niebxst"]
+[gd_scene load_steps=65 format=3 uid="uid://dplev6niebxst"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_a35f0"]
 [ext_resource type="Texture2D" uid="uid://ym7g1bvnshni" path="res://assets/player/Attacks.png" id="2_h4qy0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b48gr60jswg5n" path="res://assets/player/Jump.png" id="6_m08yk"]
 [ext_resource type="Texture2D" uid="uid://daqwlryfk5sma" path="res://assets/player/Run.png" id="7_l3a4q"]
 [ext_resource type="Texture2D" uid="uid://deap27oqfkt0b" path="res://assets/player/Slide.png" id="8_gy5o0"]
+[ext_resource type="Script" path="res://Scripts/sword.gd" id="9_tulmm"]
 [ext_resource type="AudioStream" uid="uid://cireubg54oav6" path="res://assets/audio/cartoon-jump-6462-_1_.ogg" id="9_vmptg"]
 [ext_resource type="Script" path="res://Scripts/damageable.gd" id="10_ordul"]
 
@@ -393,7 +394,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqw30"]
-size = Vector2(26, 29.3333)
+size = Vector2(69, 30.6666)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ko6eh"]
 size = Vector2(26.6667, 48.0003)
@@ -412,9 +413,10 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="sword" type="Area2D" parent="."]
+script = ExtResource("9_tulmm")
 
 [node name="SwordCollisionShape2D" type="CollisionShape2D" parent="sword"]
-position = Vector2(40, 16)
+position = Vector2(99, 14.6666)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_yqw30")
 
@@ -434,3 +436,5 @@ stream = ExtResource("9_vmptg")
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("10_ordul")
+
+[connection signal="body_entered" from="sword" to="." method="_on_sword_body_entered"]

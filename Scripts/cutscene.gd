@@ -5,14 +5,13 @@ extends CanvasLayer
 @onready var texture_rect = $Control/TextureRect
 @onready var timer = $Control/TextureRect/Timer
 @onready var control = $Control
-
 signal cutscene_finished
 
 var cutscene_frames = []     # Array to hold all frames
 var frame_durations = []     # Array to hold durations for each frame
 var current_frame = 0        # Track current frame
 var current_type = 0        # Track which type of cutscene is playing
-enum CutsceneType { INTRO, BOSS }
+enum CutsceneType { INTRO, BOSS, VICTORY }  # Added VICTORY type
 
 func _ready():
 	hide()  # Hide by default
@@ -21,11 +20,11 @@ func _ready():
 	
 	var window_size = get_window().size
 	# Make the control smaller than the window
-	control.custom_minimum_size = window_size * 0.9  # 20% smaller
+	control.custom_minimum_size = window_size * 0.9
 	control.size = window_size * 0.9
 	
 	# Center the control
-	control.position = window_size * 0.05 # Offset to center
+	control.position = window_size * 0.05
 	
 	get_tree().root.size_changed.connect(_on_window_resize)
 
@@ -60,20 +59,27 @@ func load_cutscene_frames(type: int):
 			
 		CutsceneType.BOSS:
 			cutscene_frames.append(preload("res://assets/Cutscenes/bosscs1.png"))
-			frame_durations.append(2.5)
+			frame_durations.append(3.5)
 			cutscene_frames.append(preload("res://assets/Cutscenes/bosscs2.png"))
-			frame_durations.append(2.5)
+			frame_durations.append(3.5)
 			cutscene_frames.append(preload("res://assets/Cutscenes/bosscs3.png"))
-			frame_durations.append(2.5)
+			frame_durations.append(4.5)
 			cutscene_frames.append(preload("res://assets/Cutscenes/bosscs4.png"))
-			frame_durations.append(2.5)
+			frame_durations.append(5.0)
 			cutscene_frames.append(preload("res://assets/Cutscenes/bosscs5.png"))
-			frame_durations.append(2.5)
+			frame_durations.append(5.0)
 			cutscene_frames.append(preload("res://assets/Cutscenes/bosscs6.png"))
-			frame_durations.append(2.5)
+			frame_durations.append(5.0)
 			cutscene_frames.append(preload("res://assets/Cutscenes/bosscs7.png"))
-			frame_durations.append(2.5)
-			
+			frame_durations.append(3.5)
+
+		CutsceneType.VICTORY:
+			cutscene_frames.append(preload("res://assets/Cutscenes/victorycs1.png"))
+			frame_durations.append(3.5)
+			cutscene_frames.append(preload("res://assets/Cutscenes/victorycs2.png"))
+			frame_durations.append(3.5)
+			cutscene_frames.append(preload("res://assets/Cutscenes/victorycs3.png"))
+			frame_durations.append(3.5)
 
 func show_cutscene(duration: float = 5.0, type: int = CutsceneType.INTRO):
 	current_type = type

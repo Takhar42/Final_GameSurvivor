@@ -3,8 +3,7 @@ extends CharacterBody2D
 
 enum BossState { IDLE, WALK, ATTACK, STOP, DAMAGED, DEATH }
 var state = BossState.IDLE
-
-@export var health = 100
+@export var health = 200
 @export var move_speed = 100.0
 @export var attack_range = 200.0
 @export var attack_cooldown = 2.0
@@ -41,7 +40,6 @@ func _physics_process(delta):
 	if not can_act:  # Don't do anything if not allowed to act
 		state = BossState.IDLE
 		return
-
 	match state:
 		BossState.IDLE:
 			pass  # Do nothing
@@ -83,7 +81,7 @@ func perform_attack():
 	attack_timer.start()
 	# Check for player in range and apply damage
 	if player and position.distance_to(player.position) <= attack_range:
-		player.take_damage(100)  # Assuming the player has a `take_damage` function
+		player.take_damage(100)
 	state = BossState.IDLE
 
 func stop_movement():
@@ -108,10 +106,13 @@ func _on_action_timeout():
 	action_timer.start()
 
 func take_damage(amount):
+	print("damage")
 	health -= amount
 	sprite.play("damaged")
 	if health <= 0:
 		state = BossState.DEATH
+		if world.has_method("show_victory_cutscene"):  # Added this check
+			world.show_victory_cutscene()
 	else:
 		state = BossState.IDLE
 
@@ -119,12 +120,10 @@ func die():
 	sprite.play("death")
 	queue_free()
 
-# Called by world to enable boss actions
 func enable_actions():
 	can_act = true
 	action_timer.start()
 
-# Called by world to disable boss actions
 func disable_actions():
 	can_act = false
 	state = BossState.IDLE
