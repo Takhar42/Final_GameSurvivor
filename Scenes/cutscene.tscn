@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://ceek3jrt4dvsh"]
 
-[ext_resource type="Texture2D" uid="uid://d00qkiaciovy" path="res://assets/Cutscenes/titlescreen.png" id="1_6c60m"]
 [ext_resource type="Script" path="res://Scripts/cutscene.gd" id="1_l3rpx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2m2v3"]
+load_path = "res://.godot/imported/titlescreen.png-6b1dc027804543e0504cde84d7105712.ctex"
 
 [node name="Cutscene" type="CanvasLayer"]
 script = ExtResource("1_l3rpx")
@@ -21,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_6c60m")
+texture = SubResource("CompressedTexture2D_2m2v3")
 stretch_mode = 5
 
 [node name="Timer" type="Timer" parent="Control/TextureRect"]

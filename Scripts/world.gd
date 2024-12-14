@@ -17,7 +17,7 @@ const START_SPEED : float = 10
 const MAX_SPEED : int = 30
 const SPEED_MODIFIER : int = 2500
 const MAX_DIFFICULTY : int = 2
-enum CutsceneType { INTRO, BOSS }  # Add enum for cutscene types
+enum CutsceneType { INTRO, BOSS, VICTORY }
 
 @onready var player = $Player
 @onready var ground = $Ground
@@ -54,6 +54,7 @@ func _ready():
 	if not intro_cutscene_shown:
 		starting_audio.play()
 		cutscene.show_cutscene(5.0, CutsceneType.INTRO)  # Modified to include type
+		restart.hide()
 	else:
 		init_game()
 
@@ -63,8 +64,6 @@ func init_game():
 	game_live = false
 	show_score()
 	
-	#player.position.x = camera.position.x - 400
-	#player.position.y = camera.position.y + 200
 	player.position = PLAYER_START_POS
 	camera.position = CAM_START_POS
 	ground.position = GND_START_POS
@@ -96,7 +95,7 @@ func _process(delta):
 		# Generate and manage obstacles
 		generate_obs()
 
-		if score/15 == 1000:
+		if score/15 == 500:
 			boss_spawned = true
 			if not boss_audio.playing:
 				running_audio.stop()
@@ -115,14 +114,17 @@ func _process(delta):
 
 func _on_cutscene_finished():
 	intro_cutscene_shown = true
-	restart.hide()
-	if score/15 == 1000:
-		# Boss setup after cutscene
-		boss.position.x = camera.position.x + 300
-		boss.position.y = camera.position.y + 60
-		# Add delay before boss can act
-		await get_tree().create_timer(1.0).timeout
-		boss.enable_actions()  # Enable boss actions after delay
+	if score / 15 == 500:
+		if is_instance_valid(boss):  # Check if boss still exists
+			# Boss setup after cutscene
+			boss.position.x = camera.position.x + 300
+			boss.position.y = camera.position.y + 60
+			# Add delay before boss can act
+			await get_tree().create_timer(1.0).timeout
+			boss.enable_actions()  # Enable boss actions after delay
+	elif cutscene.current_type == CutsceneType.VICTORY:
+		# Handle victory cutscene end
+		game_over()
 	else:
 		# Show start screen after intro cutscene
 		displays.get_node("Start").show()
@@ -176,3 +178,7 @@ func adjust_difficulty():
 
 func show_score():
 	displays.get_node("Score").text = "Score: " + str(score/15)
+	
+func show_victory_cutscene():
+	game_live = false
+	cutscene.show_cutscene(7.5, CutsceneType.VICTORY)

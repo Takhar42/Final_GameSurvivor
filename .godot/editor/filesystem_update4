@@ -1,5 +1,4 @@
 res://Scenes/displays.tscn
-res://Scripts/world.gd
 res://Scenes/world.tscn
 res://Scenes/temp.tscn
 res://Scenes/boss.tscn
@@ -10,3 +9,8 @@ res://Scenes/bg.tscn
 res://Scenes/ghost.tscn
 res://Scenes/game_over.tscn
 res://Scenes/cutscene.tscn
+res://Scripts/boss.gd
+res://Scripts/cleaver.gd
+res://Scripts/player.gd
+res://Scripts/sword.gd
+res://Scripts/world.gd
