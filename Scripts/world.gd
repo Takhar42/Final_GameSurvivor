@@ -59,6 +59,7 @@ func _ready():
 		init_game()
 
 func init_game():
+	clear_all()
 	get_tree().paused = false 
 	score = 0
 	game_live = false
@@ -100,7 +101,10 @@ func _process(delta):
 			if not boss_audio.playing:
 				running_audio.stop()
 				boss_audio.play()
-			cutscene.show_cutscene(4.0, CutsceneType.BOSS)  # Modified to include type
+			cutscene.show_cutscene(4.0, CutsceneType.BOSS)
+			clear_all()
+			if player.is_alive == false:
+				game_over()
 			
 		if camera.position.x - ground.position.x > screen_size.x * 1.5:
 			ground.position.x += screen_size.x
@@ -121,9 +125,8 @@ func _on_cutscene_finished():
 			boss.position.y = camera.position.y + 60
 			# Add delay before boss can act
 			await get_tree().create_timer(1.0).timeout
-			boss.enable_actions()  # Enable boss actions after delay
+			boss.enable_actions()
 	elif cutscene.current_type == CutsceneType.VICTORY:
-		# Handle victory cutscene end
 		game_over()
 	else:
 		# Show start screen after intro cutscene
@@ -164,6 +167,10 @@ func remove_obs(obs):
 	obs.queue_free()
 	obstacles.erase(obs)
 
+func clear_all():
+	for i in range (obstacles.size()):
+		remove_obs(obstacles[obstacles.size() - 1])
+		
 func game_over():
 	print("Game Over!")
 	game_live = false
@@ -180,5 +187,4 @@ func show_score():
 	displays.get_node("Score").text = "Score: " + str(score/15)
 	
 func show_victory_cutscene():
-	game_live = false
 	cutscene.show_cutscene(7.5, CutsceneType.VICTORY)

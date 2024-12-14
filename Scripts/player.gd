@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var MOVE_SPEED: float = 300.0
 @export var JUMP_VELOCITY: float = -900.0
 @export var HEALTH: float = 100
-@export var ATTACK_RANGE: float = 200.0  # Add attack range like boss has
+@export var ATTACK_RANGE: float = 200.0
 
 
 const GRAVITY : int = 4200
@@ -15,6 +15,7 @@ const JUMP_SPEED : int = -1800
 
 var jump_audio: AudioStreamPlayer2D
 var is_attacking = false
+var is_alive = true
 
 func _ready():
 	jump_audio = $JumpAudio # Initialize jump_audio properly here
@@ -79,3 +80,4 @@ func take_damage(amount):
 
 func die():
 	print("Player defeated!")
+	is_alive = false;

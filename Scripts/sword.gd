@@ -1,4 +1,4 @@
-# sword.gd
+class_name Sword
 extends Area2D
 
 @export var damage : int = 10
