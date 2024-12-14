@@ -4,7 +4,6 @@ extends Node
 
 @export var boss_scene = preload("res://Scenes/boss.tscn")
 
-const DINO_START_POS := Vector2i(150, 485)
 const CAM_START_POS := Vector2i(576, 324)
 const START_SPEED : float = 10
 const MAX_SPEED : int = 100
@@ -14,6 +13,7 @@ const MAX_SPEED : int = 100
 @onready var camera = $Camera2D
 @onready var boss = $Boss
 @onready var displays = $Displays
+@onready var restart = $GameOver
 @onready var obstacles = $Obstacles
 @onready var starting_audio : AudioStreamPlayer2D = $StartingAudio
 @onready var running_audio : AudioStreamPlayer2D = $RunningAudio
@@ -41,15 +41,21 @@ func _ready():
 					child.queue_free()
 			obstacle_types.append(template)
 			print("Added obstacle template: ", sprite.name)
+	restart.get_node("Button").pressed.connect(init_game)
 	init_game()
 
 func init_game():
+	get_tree().paused = false 
 	score = 0
 	game_live = false
 	show_score()
 	starting_audio.play()
 	clear_all()
 	
+	player.position.x = camera.position.x - 400
+	player.position.y = camera.position.y + 200
+	
+	restart.hide()
 	displays.get_node("Start").show()
 
 func _process(delta):
@@ -138,8 +144,8 @@ func game_over():
 	print("Game Over!")
 	game_live = false
 	boss_spawned = false
-	#displays.get_node("End").show()
-	init_game()
+	get_tree().paused = true
+	restart.show()
 
 func show_score():
 	displays.get_node("Score").text = "Score: " + str(score/15)
