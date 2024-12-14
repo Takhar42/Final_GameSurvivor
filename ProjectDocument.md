@@ -36,35 +36,35 @@ _Procedural Terrain_ - The game's background consists of procedurally generated 
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
 ## Producer
-Name: Arian Walia
-Email: aswalia@ucdavis.edu
-Github: inspector2107
+*Name: Arian Walia*
+*Email: aswalia@ucdavis.edu*
+*Github: inspector2107*
 
 As the producer for our group I made the group discord server which was our main form of communication. I also dedicated certain channels for different aspects of development. In terms of meetings I had a server with polls on what days were the best to meet up/call. I also tried to give the group a timeline on how far we should have come come along in our project based on what day we were on. There were some disputes along the way but through some meetings and calss I managed to settle the creative differenced that our group was having. I also helped other group members with miscellaneous tasks reagrding the code.
 
 ## User Interface and Input
 
-Name: Arjun Takhar 
-Email: atakhar@ucdavis.edu
-GitHub: Takhar42
+*Name: Arjun Takhar*
+*Email: atakhar@ucdavis.edu*
+*GitHub: Takhar42*
 
 For the user interface and input I was in charge of making sure that the player movement and actions were smooth. The movements and keys were mapped so there is easy use to the user. The input mapping was very simple and worked really well with the concept of the game.
 
 **Add an entry for each platform or input style your project supports.**
 
 ## Movement/Physics
-Name: Hamza Ahmed
-Email: harhmed@ucdavis.edu
-Github: hamzahmed1234
+*Name: Hamza Ahmed*
+*Email: harhmed@ucdavis.edu*
+*Github: hamzahmed1234*
 
 We used a lot of the default physics settings like gravity to implement the jump control. Jump is the up arrow control and plays a sound effect when pushed. When the player is not on the floor we also simulate falling behaviors. Horizontal movement is handled by the left and right arrow keys. In the idle state, velocity is set to 0. We also have our slide movement which has a separate hitbox corresponding to movement. The slide control will make the hitbox much smaller and the hitbox will go back to normal when the slide is complete. The slide bind is the down arrow key. The sword can damage the demon within its hitbox. The sword bind is the s key.
 
 The boss movement is directly dependent on the player's location as seen in the boss.gd class. If the boss is to closs to the player than it will go into the idle state but can continue attacking. There is also an attack timer to make sure that the boss does not attack constantly. The boss alternates between walking, attacking, and stopping. 
 
 ## Animation and Visuals
-Name: Jason Gill
-Email: jasgil@ucdavis.edu
-Github: jgill-101
+*Name: Jason Gill*
+*Email: jasgil@ucdavis.edu*
+*Github: jgill-101*
 
 I spent a lot of time piecing together the building blocks that make the game feel alive. First up were the sprites, I sourced a variety of them to give the world a cohesive vibe while keeping it visually engaging. Whether it’s the main character, enemies, or the scenery, everything has a distinct style that draws you in. Once the sprites were locked in, I got to work on the hitboxes, which is where things got tricky. It’s all about making sure that the game feels fair: precise enough to challenge the player, but not so unforgiving that it’s frustrating.
 
@@ -110,18 +110,18 @@ The first script handles most of the state logic, where much of the assets neede
 **Document the sound style.**
 
 ## Gameplay Testing
-Name: Arjun Takhar 
-Email: atakhar@ucdavis.edu
-GitHub: Takhar42
+*Name: Arjun Takhar*
+*Email: atakhar@ucdavis.edu*
+*GitHub: Takhar42*
 
 **Add a link to the full results of your gameplay tests.**
 
 **Summarize the key findings from your gameplay tests.**
 
 ## Narrative Design
-Name: Hamza Ahmed
-Email: harhmed@ucdavis.edu
-Github: hamzahmed1234
+*Name: Hamza Ahmed*
+*Email: harhmed@ucdavis.edu*
+*Github: hamzahmed1234*
 
 I designed the overall story of the game and cutscenes. Designing each cutscene took a bit of time but overall I am very happy with the way they look. I think one of the hardest parts of implementing the cutscenes was making sure that they start at the right times. Getting all the cutscenes to work at the right time took extensive debugging. For the sake of simplicity, I added cutscenes in three core areas. These areas being the beginning of the game, when the boss is first encountered, and once the boss is defeated. I did this by making an ENUM of the three cutscene types I used a timer node to delay between each scene. 
 
@@ -129,9 +129,9 @@ I designed the overall story of the game and cutscenes. Designing each cutscene 
 
 ## Press Kit and Trailer
 
-Name: Arian Walia
-Email: aswalia@ucdavis.edu
-Github: inspector2107
+*Name: Arian Walia*
+*Email: aswalia@ucdavis.edu*
+*Github: inspector2107*
 
 In the trailer I tried to showcase our games best point which was the boss fight and in addition I also tried to make the trailer showcase the storyline of our game. For the presskit I tried to make it through presskit() but I ran into some issues with aking the server so I created one through canva and added the trailer along with a coule other important details about the game.
 The presskit.mp4 and Survivor Trailer.mp4 are both attatched in the boss branch
