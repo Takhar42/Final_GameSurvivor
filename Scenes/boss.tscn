@@ -361,6 +361,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-2, 80)
 shape = SubResource("RectangleShape2D_aicgf")
 
@@ -368,6 +369,7 @@ shape = SubResource("RectangleShape2D_aicgf")
 script = ExtResource("62_liaj4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cleaver"]
+visible = false
 position = Vector2(-252.5, 149)
 shape = SubResource("RectangleShape2D_5hs43")
 
