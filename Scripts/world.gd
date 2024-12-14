@@ -96,7 +96,7 @@ func _process(delta):
 		# Generate and manage obstacles
 		generate_obs()
 
-		if score/15 == 500:
+		if score/15 == 1000:
 			boss_spawned = true
 			if not boss_audio.playing:
 				running_audio.stop()
@@ -118,7 +118,7 @@ func _process(delta):
 
 func _on_cutscene_finished():
 	intro_cutscene_shown = true
-	if score / 15 == 500:
+	if score / 15 == 1000:
 		if is_instance_valid(boss):  # Check if boss still exists
 			# Boss setup after cutscene
 			boss.position.x = camera.position.x + 300
