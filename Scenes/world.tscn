@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://2hu24g51nt80"]
+[gd_scene load_steps=11 format=3 uid="uid://2hu24g51nt80"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_jeina"]
 [ext_resource type="PackedScene" uid="uid://s5ej65stld57" path="res://Scenes/bg.tscn" id="2_rls1m"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://3pgt3p6jh6rh" path="res://Scenes/boss.tscn" id="5_fww62"]
 [ext_resource type="PackedScene" uid="uid://4xsh4h3f6eij" path="res://Scenes/ground.tscn" id="6_jhoxo"]
 [ext_resource type="PackedScene" uid="uid://dplev6niebxst" path="res://Scenes/player.tscn" id="7_gyelo"]
+[ext_resource type="AudioStream" uid="uid://tpu0l2r4e1dq" path="res://SunnyLand Music/Adventure pack 1 ogg/Going Up.ogg" id="8_odjpw"]
+[ext_resource type="AudioStream" uid="uid://bqj6opmyw6alm" path="res://SunnyLand Music/Adventure pack 1 ogg/exploration.ogg" id="9_sbqmx"]
+[ext_resource type="AudioStream" uid="uid://ja5ma8mpjnf7" path="res://SunnyLand Music/Adventure pack 1 ogg/dark-happy-world.ogg" id="10_wxsn0"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_jeina")
@@ -28,3 +31,12 @@ position = Vector2(0, 584)
 
 [node name="Player" parent="." instance=ExtResource("7_gyelo")]
 position = Vector2(104, 544)
+
+[node name="StartingAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_odjpw")
+
+[node name="RunningAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_sbqmx")
+
+[node name="BossAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_wxsn0")

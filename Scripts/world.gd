@@ -15,6 +15,9 @@ const MAX_SPEED : int = 100
 @onready var boss = $Boss
 @onready var displays = $Displays
 @onready var obstacles = $Obstacles
+@onready var starting_audio : AudioStreamPlayer2D = $StartingAudio
+@onready var running_audio : AudioStreamPlayer2D = $RunningAudio
+@onready var boss_audio : AudioStreamPlayer2D = $BossAudio
 
 var score : int
 var max_score : int
@@ -29,21 +32,10 @@ var boss_spawned = false
 
 func _ready():
 	screen_size = get_window().size
-	
-	# Set up collision layers
-	player.collision_layer = 0b001  # Player on layer 1
-	player.collision_mask = 0b110   # Collide with layers 2 and 3 (ground and obstacles)
-	
-	ground.collision_layer = 0b010     # Ground on layer 2
-	ground.collision_mask = 0b001      # Only collide with player
-	
-	# Get individual obstacle templates
-	
-	# Create separate Area2D templates for each sprite
+		
 	for sprite in obstacles.get_children():
 		if sprite is Sprite2D:
-			var template = obstacles.duplicate()  # Duplicate the Area2D
-			# Remove all sprites except the current one
+			var template = obstacles.duplicate()
 			for child in template.get_children():
 				if child is Sprite2D and child.name != sprite.name:
 					child.queue_free()
@@ -55,14 +47,14 @@ func init_game():
 	score = 0
 	game_live = false
 	show_score()
-	
-	# Clear any existing obstacles
+	starting_audio.play()
 	clear_all()
 	
 	displays.get_node("Start").show()
 
 func _process(delta):
 	if game_live and not boss_spawned:
+		running_audio.play()
 		speed = START_SPEED
 		player.position.x += speed
 		camera.position.x += speed
@@ -75,6 +67,7 @@ func _process(delta):
 
 		if score/15 == 200:
 			boss_spawned = true
+			boss_audio.play()
 			clear_all()
 			boss.position.x = camera.position.x + 300
 			boss.position.y = camera.position.y + 60
