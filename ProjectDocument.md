@@ -52,9 +52,9 @@ For the user interface and input I was in charge of making sure that the player 
 **Add an entry for each platform or input style your project supports.**
 
 ## Movement/Physics
-*Name: Hamza Ahmed*
-*Email: harhmed@ucdavis.edu*
-*Github: hamzahmed1234*
+Name: Hamza Ahmed
+Email: harhmed@ucdavis.edu
+Github: hamzahmed1234
 
 We used a lot of the default physics settings like gravity to implement the jump control. Jump is the up arrow control and plays a sound effect when pushed. When the player is not on the floor we also simulate falling behaviors. Horizontal movement is handled by the left and right arrow keys. In the idle state, velocity is set to 0. We also have our slide movement which has a separate hitbox corresponding to movement. The slide control will make the hitbox much smaller and the hitbox will go back to normal when the slide is complete. The slide bind is the down arrow key. The sword can damage the demon within its hitbox. The sword bind is the s key.
 
